@@ -13,6 +13,13 @@ The target is a complete C÷ 1.0 release. Work may happen in parallel, but featu
 - [x] First native C++20 source-emission backend (preview)
 - [x] Initial `cdiv build` and `cdiv run` commands
 - [x] Native execution smoke test in CI
+- [x] Multi-line block comments with an unterminated-comment diagnostic
+- [x] Initial compiler environment report via cdiv doctor
+- [x] Release workflow for Windows/Linux archives and a GHCR container image
+
+## Language design
+
+The long-term direction, including the Standard and System profiles, proposed ownership model, and native compilation architecture, is described in [Language design](language-design.md). These are design targets; only items marked as implemented below are available in the compiler.
 
 ## Milestones toward 1.0
 
@@ -48,6 +55,8 @@ These are development targets, not promises that a release is already complete.
 
 ## Developer experience
 
+- [x] Initial toolchain diagnostics through cdiv doctor
+
 - [x] Initial cdiv run, build, and check commands
 - [ ] Stabilize CLI behavior, diagnostics, and cross-platform compiler discovery
 - [ ] Formatter and language-server support
@@ -56,6 +65,9 @@ These are development targets, not promises that a release is already complete.
 - [ ] Signed release packages and checksums
 
 ## Distribution
+
+- [x] GitHub Release workflow with checksums and Linux/Windows archives
+- [x] GHCR container-image publishing workflow (first publication still requires a maintainer-run release)
 
 - [x] Source archive download without Git
 - [x] Release packaging workflow prepared for Windows x64 and Linux x64
