@@ -1,6 +1,6 @@
 # Getting started
 
-This guide gets the current C÷ command-line front end building on a standard development machine.
+This guide builds the C÷ compiler and runs a first C÷ program. The native backend is an early preview and compiles the supported subset through your installed C++20 toolchain.
 
 ## What you need
 
@@ -67,13 +67,16 @@ Open a new terminal after installation so the updated user PATH is picked up.
 cdiv version
 cdiv lex examples/hello.cdiv
 cdiv check examples/hello.cdiv
+cdiv run examples/hello.cdiv
+cdiv build examples/hello.cdiv
 ~~~
 
-At this stage, lex prints tokens and check validates syntax. Running C÷ programs and native-code generation are not implemented yet.
+`lex` prints tokens and `check` validates syntax. `run` compiles the supported C÷ subset to a temporary native executable and launches it. `build` creates a native executable under `build/` (on Windows, with the `.exe` extension).
 
 ## Troubleshooting
 
 - **CMake cannot find a compiler:** verify that your C++ compiler is installed and available in the terminal.
+- **`cdiv run` or `cdiv build` cannot find a compiler:** the native backend uses the compiler selected when C÷ was built, unless `CXX` is set. Set `CXX` to the path of a C++20 compiler such as `g++`, `clang++`, or `cl.exe`.
 - **The C++ standard is too old:** use a C++20-capable compiler.
 - **Windows cannot find cdiv after installation:** open a new PowerShell window and confirm that %LOCALAPPDATA%\Programs\C-Divide\bin is in your user PATH.
 - **A test fails:** open an issue and include the command, operating system, compiler version, and complete error output.
