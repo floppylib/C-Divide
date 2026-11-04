@@ -5,12 +5,14 @@
   <p><img alt="Built with ChatGPT" src="https://img.shields.io/badge/Built%20with-ChatGPT-10A37F?style=for-the-badge&logo=openai&logoColor=white"></p>
     <p align="center">
     <a href="https://github.com/floppylib/C-Divide/archive/refs/heads/main.zip"><img alt="Source ZIP" src="https://img.shields.io/badge/Download-Source%20ZIP-238636?style=for-the-badge&logo=github&logoColor=white"></a>
+    <a href="https://github.com/floppylib/C-Divide/releases"><img alt="GitHub Releases" src="https://img.shields.io/badge/GitHub-Releases-7C3AED?style=for-the-badge&logo=github&logoColor=white"></a>
+    <a href="https://github.com/users/floppylib/packages/container/package/c-divide"><img alt="GitHub Packages" src="https://img.shields.io/badge/GitHub-Packages-2496ED?style=for-the-badge&logo=docker&logoColor=white"></a>
     <a href="https://cmake.org/download/"><img alt="CMake 3.20+" src="https://img.shields.io/badge/Get-CMake%203.20%2B-064F8C?style=for-the-badge&logo=cmake&logoColor=white"></a>
     <a href="https://visualstudio.microsoft.com/visual-cpp-build-tools/"><img alt="Windows C++ Build Tools" src="https://img.shields.io/badge/Windows-C%2B%2B%20Build%20Tools-5C2D91?style=for-the-badge&logo=visualstudio&logoColor=white"></a>
     <a href="https://www.msys2.org/"><img alt="MSYS2 / GCC" src="https://img.shields.io/badge/GCC-MSYS2-4D4D4D?style=for-the-badge"></a>
     <a href="https://releases.llvm.org/"><img alt="LLVM / Clang" src="https://img.shields.io/badge/Clang-LLVM-E36F1E?style=for-the-badge"></a>
   </p>
-  <p><em>To build from source you need CMake 3.20+ and a C++20 compiler. Prebuilt C÷ binaries are not available yet.</em></p>
+  <p><em>To build from source you need CMake 3.20+ and a C++20 compiler. The first official binary release and container package are prepared for maintainer publication.</em></p>
   <p><strong>Simple to learn. Powerful to build.</strong></p>
   <p>A readable programming language with a native-compilation goal.</p>
   <p>
@@ -39,7 +41,7 @@
 
 C÷ (pronounced **C-Divide**) is an open programming-language project. Its goal is to make code approachable for new programmers without giving up the structure needed for serious software.
 
-The long-term direction is a **native-compiled language** with automatic and manual memory-management options, a useful standard library, and friendly developer tools.
+The long-term direction is a **native-compiled language** with safe defaults, explicit system-level control, a useful standard library, and friendly developer tools. See the [language design](docs/language-design.md) for the proposed Standard and System profiles. These are design goals, not all implemented features.
 
 > **Current status:** C÷ has an initial lexer, parser, syntax checker, and a preview native backend. `cdiv build` and `cdiv run` translate the supported language subset into C++20 and invoke the host C++ compiler to produce a native executable. Type checking, complete module handling, a standard library, and the final memory model are still under development. This is not the finished 1.0 release yet.
 
@@ -130,10 +132,11 @@ cdiv build examples/hello.cdiv
 ## 📦 Downloads
 
 - **Source code:** use the ZIP link above. No account is required.
-- **Prebuilt compiler tools:** packages will be published on the [Releases page](https://github.com/floppylib/C-Divide/releases) after a version tag is created and the release build succeeds.
+- **Windows and Linux compiler archives:** the [Releases page](https://github.com/floppylib/C-Divide/releases) will contain the compiler archives and SHA-256 checksums after the first successful publication.
+- **Container package:** the compiler image is published to [GitHub Packages](https://github.com/users/floppylib/packages/container/package/c-divide) as `ghcr.io/floppylib/c-divide`. See [package instructions](docs/packages.md).
 - **Install scripts:** <code>scripts/install.sh</code> and <code>scripts/install.ps1</code> are provided for installing a built executable into the user's account.
 
-**Prebuilt packages are not published yet.** The release workflow is prepared, but downloads will only appear after a tagged release is built successfully.
+**Publication status:** the workflow is configured, but no release or container image is published yet. A maintainer must run **Actions → C÷ release and packages → Run workflow** with tag `v0.2.1`. The first GHCR package may need its visibility changed to Public before anonymous users can pull it.
 
 ## 🧩 What's implemented?
 
@@ -144,6 +147,8 @@ cdiv build examples/hello.cdiv
 | Parser and syntax checker | ✅ Initial version |
 | Variables, calls, functions, conditions and loops | ✅ Parsed; supported subset compiles |
 | Native C++20 code-generation backend | ✅ Initial preview |
+| Multi-line comments and unterminated-comment diagnostics | ✅ |
+| `cdiv doctor` toolchain report | ✅ |
 | `cdiv build` and `cdiv run` | ✅ Initial preview |
 | Automated build and test workflow | ✅ Configured |
 | Full semantic and static type analysis | 🛠 Planned |
@@ -162,6 +167,8 @@ See the [roadmap](docs/roadmap.md) for planned milestones.
 | [Getting started](docs/getting-started.md) | Build C÷ on Windows or Linux |
 | [Language guide](docs/language.md) | Syntax recognized by the current front end |
 | [Architecture](docs/architecture.md) | Compiler structure and components |
+| [Language design](docs/language-design.md) | Standard/System profiles, safety, and long-term design |
+| [Packages](docs/packages.md) | Release downloads and container usage |
 | [Native backend](docs/native-backend.md) | How native builds work and current limits |
 | [Changelog](CHANGELOG.md) | Version history and implementation boundaries |
 | [Roadmap](docs/roadmap.md) | Planned milestones |
