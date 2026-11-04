@@ -133,7 +133,7 @@ cdiv build examples/hello.cdiv
 
 - **Source code:** use the ZIP link above. No account is required.
 - **Windows and Linux compiler archives:** the [Releases page](https://github.com/floppylib/C-Divide/releases) will contain the compiler archives and SHA-256 checksums after the first successful publication.
-- **Container package:** the compiler image is published to [GitHub Packages](https://github.com/users/floppylib/packages/container/package/c-divide) as `ghcr.io/floppylib/c-divide`. See [package instructions](docs/packages.md).
+- **Container package:** the release workflow will publish the compiler image to [GitHub Packages](https://github.com/users/floppylib/packages/container/package/c-divide) as `ghcr.io/floppylib/c-divide`. See [package instructions](docs/packages.md).
 - **Install scripts:** <code>scripts/install.sh</code> and <code>scripts/install.ps1</code> are provided for installing a built executable into the user's account.
 
 **Publication status:** the workflow is configured, but no release or container image is published yet. A maintainer must run **Actions → C÷ release and packages → Run workflow** with tag `v0.2.1`. The first GHCR package may need its visibility changed to Public before anonymous users can pull it.
