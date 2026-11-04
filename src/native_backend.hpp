@@ -319,7 +319,8 @@ inline int compile_cpp_file(const std::filesystem::path& cpp_file,
     std::string command;
 #ifdef _WIN32
     const std::string compiler_name = std::filesystem::path(compiler).filename().string();
-    const bool msvc = compiler_name == "cl" || compiler_name == "cl.exe";
+    const bool msvc = compiler_name == "cl" || compiler_name == "cl.exe" ||
+                       compiler_name == "clang-cl" || compiler_name == "clang-cl.exe";
     if (msvc) {
         auto object_file = cpp_file;
         object_file.replace_extension(".obj");
