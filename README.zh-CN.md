@@ -1,6 +1,7 @@
 <div align="center">
-  <img src="assets/IMG_20261104_222603.png" alt="C÷ 官方标志" width="144">
+  <img src="assets/logo-padded.svg" alt="C÷ 官方标志" width="144">
   <h1>C÷ · C-Divide</h1>
+  <p><strong>下载：</strong> <a href="https://github.com/floppylib/C-Divide/archive/refs/heads/main.zip">ZIP 源代码</a> · <a href="https://cmake.org/download/">CMake 3.20+</a> · <a href="https://visualstudio.microsoft.com/visual-cpp-build-tools/">Windows C++ 构建工具</a> · <a href="https://www.msys2.org/">MSYS2 / GCC</a> · <a href="https://releases.llvm.org/">LLVM / Clang</a></p><p><em>从源码构建需要 CMake 3.20+ 和 C++20 编译器。C÷ 的预编译二进制文件目前尚未发布。</em></p>
   <p><strong>易于学习，强大而实用。</strong></p>
   <p>一门注重可读性、以原生编译为长期目标的编程语言。</p>
 </div>
