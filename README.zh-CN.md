@@ -1,7 +1,14 @@
 <div align="center">
   <img src="assets/logo-padded.svg" alt="C÷ 官方标志" width="144">
   <h1>C÷ · C-Divide</h1>
-  <p><strong>下载：</strong> <a href="https://github.com/floppylib/C-Divide/archive/refs/heads/main.zip">ZIP 源代码</a> · <a href="https://cmake.org/download/">CMake 3.20+</a> · <a href="https://visualstudio.microsoft.com/visual-cpp-build-tools/">Windows C++ 构建工具</a> · <a href="https://www.msys2.org/">MSYS2 / GCC</a> · <a href="https://releases.llvm.org/">LLVM / Clang</a></p><p><em>从源码构建需要 CMake 3.20+ 和 C++20 编译器。C÷ 的预编译二进制文件目前尚未发布。</em></p>
+    <p align="center">
+    <a href="https://github.com/floppylib/C-Divide/archive/refs/heads/main.zip"><img alt="ZIP 源代码" src="https://img.shields.io/badge/Download-Source%20ZIP-238636?style=for-the-badge&logo=github&logoColor=white"></a>
+    <a href="https://cmake.org/download/"><img alt="CMake 3.20+" src="https://img.shields.io/badge/Get-CMake%203.20%2B-064F8C?style=for-the-badge&logo=cmake&logoColor=white"></a>
+    <a href="https://visualstudio.microsoft.com/visual-cpp-build-tools/"><img alt="Windows C++ 构建工具" src="https://img.shields.io/badge/Windows-C%2B%2B%20Build%20Tools-5C2D91?style=for-the-badge&logo=visualstudio&logoColor=white"></a>
+    <a href="https://www.msys2.org/"><img alt="MSYS2 / GCC" src="https://img.shields.io/badge/GCC-MSYS2-4D4D4D?style=for-the-badge"></a>
+    <a href="https://releases.llvm.org/"><img alt="LLVM / Clang" src="https://img.shields.io/badge/Clang-LLVM-E36F1E?style=for-the-badge"></a>
+  </p>
+  <p><em>从源码构建需要 CMake 3.20+ 和 C++20 编译器。C÷ 的预编译二进制文件目前尚未发布。</em></p>
   <p><strong>易于学习，强大而实用。</strong></p>
   <p>一门注重可读性、以原生编译为长期目标的编程语言。</p>
 </div>
