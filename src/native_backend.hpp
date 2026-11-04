@@ -318,8 +318,8 @@ inline int compile_cpp_file(const std::filesystem::path& cpp_file,
         auto object_file = cpp_file;
         object_file.replace_extension(".obj");
         command = shell_quote(compiler) + " /nologo /std:c++20 /EHsc /utf-8 /O2 " + shell_quote(cpp_file.string()) +
-                  " /Fo:" + shell_quote(object_file.string()) +
-                  " /Fe:" + shell_quote(output_file.string());
+                  " /Fo" + shell_quote(object_file.string()) +
+                  " /Fe" + shell_quote(output_file.string());
     } else {
         command = shell_quote(compiler) + " -std=c++20 -O2 " + shell_quote(cpp_file.string()) +
                   " -o " + shell_quote(output_file.string());
