@@ -10,6 +10,9 @@ The target is a complete C÷ 1.0 release. Work may happen in parallel, but featu
 - [x] Basic .cdiv examples and tests
 - [x] CI build and test workflow
 - [x] Initial contributor and documentation structure
+- [x] First native C++20 source-emission backend (preview)
+- [x] Initial `cdiv build` and `cdiv run` commands
+- [x] Native execution smoke test in CI
 
 ## Language core
 
@@ -24,14 +27,16 @@ The target is a complete C÷ 1.0 release. Work may happen in parallel, but featu
 
 - [ ] Design a stable intermediate representation
 - [ ] Integrate an LLVM backend
-- [ ] Generate native executables for supported targets
+- [x] Generate native executables for the currently supported subset through the host C++20 toolchain
+- [ ] Replace the preview emitter with a stable, fully specified backend
 - [ ] Implement runtime support and standard library
 - [ ] Specify automatic and manual memory-management rules
 - [ ] Add debugging information and useful compiler diagnostics
 
 ## Developer experience
 
-- [ ] Stable cdiv run, build, and check commands
+- [x] Initial cdiv run, build, and check commands
+- [ ] Stabilize CLI behavior, diagnostics, and cross-platform compiler discovery
 - [ ] Formatter and language-server support
 - [ ] Package manager and dependency resolution
 - [ ] Beginner-friendly tutorials and examples
