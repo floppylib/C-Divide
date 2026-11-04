@@ -1,6 +1,8 @@
 <div align="center">
-  <img src="assets/IMG_20261104_222603.png" alt="Logo officiel de C÷" width="144">
+  <img src="assets/logo-padded.svg" alt="Logo officiel de C÷" width="144">
   <h1>C÷ · C-Divide</h1>
+  <p><strong>Téléchargements :</strong> <a href="https://github.com/floppylib/C-Divide/archive/refs/heads/main.zip">Sources ZIP</a> · <a href="https://cmake.org/download/">CMake 3.20+</a> · <a href="https://visualstudio.microsoft.com/visual-cpp-build-tools/">Outils C++ pour Windows</a> · <a href="https://www.msys2.org/">MSYS2 / GCC</a> · <a href="https://releases.llvm.org/">LLVM / Clang</a></p>
+  <p><em>La compilation nécessite CMake 3.20+ et un compilateur C++20. Aucun binaire précompilé de C÷ n’est encore disponible.</em></p>
   <p><strong>Simple à apprendre. Puissant pour créer.</strong></p>
   <p>Un langage de programmation lisible conçu avec pour objectif la compilation native.</p>
 </div>
