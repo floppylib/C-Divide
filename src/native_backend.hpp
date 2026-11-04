@@ -307,8 +307,14 @@ inline int compile_cpp_file(const std::filesystem::path& cpp_file,
 #endif
 #endif
     std::error_code ec;
-    if (!output_file.parent_path().empty())
+    if (!output_file.parent_path().empty()) {
         std::filesystem::create_directories(output_file.parent_path(), ec);
+        if (ec) {
+            std::cerr << "error: cannot create output directory '"
+                      << output_file.parent_path().string() << "': " << ec.message() << '\\n';
+            return 1;
+        }
+    }
 
     std::string command;
 #ifdef _WIN32
@@ -341,6 +347,13 @@ inline int build_native_program(const std::string& cpp_source,
             return 1;
         }
         output << cpp_source;
+        output.close();
+        if (!output) {
+            std::cerr << "error: failed to write temporary C++ source file\n";
+            std::error_code ignored;
+            std::filesystem::remove(cpp_file, ignored);
+            return 1;
+        }
     }
     const int result = compile_cpp_file(cpp_file, output_file);
     std::error_code ignored;
@@ -349,8 +362,13 @@ inline int build_native_program(const std::string& cpp_source,
     auto object_file = cpp_file;
     object_file.replace_extension(".obj");
     std::filesystem::remove(object_file, ignored);
+#else
+    auto object_file = cpp_file;
+    object_file.replace_extension(".o");
+    std::filesystem::remove(object_file, ignored);
 #endif
     if (result != 0) {
+        std::filesystem::remove(output_file, ignored);
         std::cerr << "error: native compilation failed. Install a C++20 compiler or set CXX.\n";
         return 1;
     }
