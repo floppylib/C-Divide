@@ -500,18 +500,18 @@ int run_source_file(const std::string& path) {
 }
 
 void print_doctor() {
-    std::cout << "C÷ environment diagnostics\\n"
-              << "Compiler: C++20\\n";
+    std::cout << "C÷ environment diagnostics\n"
+              << "Compiler: C++20\n";
 #ifdef CDIV_DEFAULT_CXX
-    std::cout << "Build-time C++ compiler: " << CDIV_DEFAULT_CXX << "\\n";
+    std::cout << "Build-time C++ compiler: " << CDIV_DEFAULT_CXX << "\n";
 #endif
     const char* override_compiler = std::getenv("CXX");
     if (override_compiler && *override_compiler)
-        std::cout << "CXX override: " << override_compiler << "\\n";
+        std::cout << "CXX override: " << override_compiler << "\n";
     else
-        std::cout << "CXX override: not set (using the compiler selected by CMake)\\n";
-    std::cout << "Backend: native C++20 source-emission preview\\n"
-              << "Target: host platform only; cross-compilation is not implemented\\n";
+        std::cout << "CXX override: not set (using the compiler selected by CMake)\n";
+    std::cout << "Backend: native C++20 source-emission preview\n"
+              << "Target: host platform only; cross-compilation is not implemented\n";
 }
 
 void print_help() {
