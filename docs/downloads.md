@@ -16,7 +16,7 @@ The project has a release workflow that can build command-line tools for Windows
 
 [Open the Releases page](https://github.com/floppylib/C-Divide/releases)
 
-A release package currently contains the compiler front end only. It can inspect tokens and check syntax; it cannot execute C÷ programs or generate native application binaries yet.
+The current source build can inspect tokens, check syntax, and compile the supported C÷ subset to a native executable using a host C++20 compiler. This backend is an early preview, not the complete C÷ 1.0 toolchain.
 
 ## Install from a local build
 
