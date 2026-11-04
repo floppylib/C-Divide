@@ -18,7 +18,7 @@
     <a href="LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/code-MIT-2ea44f.svg"></a>
     <a href="LICENSE-DOCS"><img alt="Documentation CC BY 4.0" src="https://img.shields.io/badge/docs-CC%20BY%204.0-blue.svg"></a>
     <img alt="C++20" src="https://img.shields.io/badge/compiler-C%2B%2B20-00599C.svg">
-    <img alt="Current stage" src="https://img.shields.io/badge/status-front--end%20foundation-orange.svg">
+    <img alt="Current stage" src="https://img.shields.io/badge/status-native%20backend%20preview-2878B5.svg">
   </p>
   <p>
     <a href="README.md">English</a> · <a href="README.fa.md">فارسی</a> · <a href="README.ar.md">العربية</a> ·
@@ -41,7 +41,7 @@ C÷ (pronounced **C-Divide**) is an open programming-language project. Its goal 
 
 The long-term direction is a **native-compiled language** with automatic and manual memory-management options, a useful standard library, and friendly developer tools.
 
-> **Honest status:** this repository currently contains an early lexer, parser, and syntax-checking foundation. It does not execute C÷ programs or generate native executables yet. The project is being built toward a complete 1.0 release.
+> **Current status:** C÷ has an initial lexer, parser, syntax checker, and a preview native backend. `cdiv build` and `cdiv run` translate the supported language subset into C++20 and invoke the host C++ compiler to produce a native executable. Type checking, complete module handling, a standard library, and the final memory model are still under development. This is not the finished 1.0 release yet.
 
 ## 🚀 A taste of the syntax
 
@@ -61,7 +61,7 @@ fn add(a: int, b: int) -> int {
 }
 ~~~
 
-This illustrates the intended language style. The current front end can tokenize and syntax-check supported constructs; runtime behavior, semantic analysis, and type checking are still under development. **C÷ source keywords are currently English**; translated README files do not mean that localized language keywords are implemented.
+This illustrates the language style. The current compiler can tokenize and syntax-check supported constructs, then compile a supported subset to native code through its C++20 backend. Full semantic analysis, type checking, and runtime/library facilities are still under development. **C÷ source keywords are currently English**; translated README files do not mean that localized language keywords are implemented.
 
 ## 🧭 Project principles
 
@@ -118,12 +118,14 @@ cdiv help
 cdiv version
 cdiv lex examples/hello.cdiv
 cdiv check examples/hello.cdiv
+cdiv run examples/hello.cdiv
+cdiv build examples/hello.cdiv
 ~~~
 
 - <code>lex</code> displays tokens and their source positions.
 - <code>check</code> checks lexical and grammatical structure.
 
-These are compiler-development commands. They do not run a program or produce a native executable yet.
+`run` compiles the source to a temporary native executable and launches it. `build` writes a native executable to `build/` (or to a path supplied with `-o`). Both commands require a working C++20 compiler; set `CXX` to select it.
 
 ## 📦 Downloads
 
@@ -140,10 +142,12 @@ These are compiler-development commands. They do not run a program or produce a 
 | C++20 / CMake project | ✅ |
 | Lexer and source-position diagnostics | ✅ Initial version |
 | Parser and syntax checker | ✅ Initial version |
-| Variables, calls, functions, conditions and loops in grammar | ✅ Parsed, not executed |
+| Variables, calls, functions, conditions and loops | ✅ Parsed; supported subset compiles |
+| Native C++20 code-generation backend | ✅ Initial preview |
+| `cdiv build` and `cdiv run` | ✅ Initial preview |
 | Automated build and test workflow | ✅ Configured |
-| Native code generation | 🛠 Planned |
-| Runtime and program execution | 🛠 Planned |
+| Full semantic and static type analysis | 🛠 Planned |
+| Complete runtime and standard library | 🛠 Planned |
 | Semantic and type analysis | 🛠 Planned |
 | Standard library and module system | 🛠 Planned |
 | Memory-management model | 🧭 Design work |
