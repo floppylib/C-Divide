@@ -1,6 +1,8 @@
 <div align="center">
-  <img src="assets/IMG_20261104_222603.png" alt="شعار C÷ الرسمي" width="144">
+  <img src="assets/logo-padded.svg" alt="شعار C÷ الرسمي" width="144">
   <h1>C÷ · C-Divide</h1>
+  <p><strong>التنزيلات:</strong> <a href="https://github.com/floppylib/C-Divide/archive/refs/heads/main.zip">الشيفرة المصدرية ZIP</a> · <a href="https://cmake.org/download/">CMake 3.20+</a> · <a href="https://visualstudio.microsoft.com/visual-cpp-build-tools/">أدوات C++ لويندوز</a> · <a href="https://www.msys2.org/">MSYS2 / GCC</a> · <a href="https://releases.llvm.org/">LLVM / Clang</a></p>
+  <p><em>يتطلب البناء CMake 3.20 أو أحدث ومترجم C++20. لا تتوفر ملفات تنفيذية جاهزة لـ C÷ حتى الآن.</em></p>
   <p><strong>سهل التعلّم، قويّ في البناء.</strong></p>
   <p>لغة برمجة واضحة تهدف إلى الترجمة إلى ملفات تنفيذية أصلية.</p>
 </div>
