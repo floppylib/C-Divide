@@ -19,7 +19,7 @@ pi = 3.14;
 ready = true;
 ~~~
 
-A variable may be assigned with name = value;. An optional type annotation can be written as name: type = value;. The current checker parses these forms but does not yet perform type checking or execute them.
+A variable may be assigned with name = value;. An optional type annotation can be written as name: type = value;. The syntax checker accepts these forms. The preview native backend compiles supported assignments; type annotations currently map `int` to a 64-bit integer, `float`/`double` to a double, `bool` to a boolean, and `string`/`str` to `std::string` in generated C++.
 
 ## Conditions
 
@@ -63,7 +63,7 @@ The return type after -> is optional in the current grammar. Parameters use name
 import math;
 ~~~
 
-Module resolution and the standard library are not implemented yet.
+`import math;` is supported by the native preview and exposes host C++ standard math functions. General module resolution and the C÷ standard library are not implemented yet.
 
 ## Expressions and operators
 
@@ -86,4 +86,4 @@ Statements end with semicolons, except block-based statements (if, repeat, while
 
 ## Current implementation boundary
 
-The cdiv lex command tokenizes source code and cdiv check validates lexical and grammatical structure. They do not yet evaluate code, type-check expressions, resolve imports, manage memory, or emit native machine code.
+`cdiv lex` tokenizes source code and `cdiv check` validates lexical and grammatical structure. `cdiv build` and `cdiv run` compile the currently supported subset through the host C++20 compiler. Complete static type checking, general import resolution, memory management, and a standalone C÷ runtime are still not implemented.
