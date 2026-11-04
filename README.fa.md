@@ -1,92 +1,170 @@
 <div align="center">
-  <img src="assets/cdivide-mark.svg" alt="نشان C÷" width="104" height="104">
+  <img src="assets/IMG_20261104_222603.png" alt="لوگوی رسمی C÷" width="144">
   <h1>C÷ — سی‌دایواید</h1>
   <p><strong>یادگیری ساده؛ قدرت برای ساختن پروژه‌های بزرگ.</strong></p>
   <p>یک زبان برنامه‌نویسی خوانا با هدف کامپایل مستقیم به فایل اجرایی بومی.</p>
   <p>
-    <a href="https://github.com/floppylib/C-Divide/actions/workflows/ci.yml"><img alt="CI" src="https://img.shields.io/github/actions/workflow/status/floppylib/C-Divide/ci.yml?branch=main&label=build%20%26%20tests"></a>
-    <a href="LICENSE"><img alt="MIT" src="https://img.shields.io/badge/code-MIT-2ea44f.svg"></a>
-    <a href="LICENSE-DOCS"><img alt="CC BY 4.0" src="https://img.shields.io/badge/docs-CC%20BY%204.0-blue.svg"></a>
+    <a href="https://github.com/floppylib/C-Divide/actions/workflows/ci.yml"><img alt="وضعیت ساخت و تست" src="https://img.shields.io/github/actions/workflow/status/floppylib/C-Divide/ci.yml?branch=main&label=build%20%26%20tests"></a>
+    <a href="LICENSE"><img alt="مجوز MIT" src="https://img.shields.io/badge/code-MIT-2ea44f.svg"></a>
+    <a href="LICENSE-DOCS"><img alt="مجوز مستندات" src="https://img.shields.io/badge/docs-CC%20BY%204.0-blue.svg"></a>
   </p>
-  <p><a href="README.md">English</a> · <a href="docs/roadmap.md">نقشه راه</a></p>
+  <p>
+    <a href="README.md">English</a> · <a href="README.fa.md">فارسی</a> · <a href="README.ar.md">العربية</a> ·
+    <a href="README.de.md">Deutsch</a> · <a href="README.es.md">Español</a> · <a href="README.fr.md">Français</a> ·
+    <a href="README.hi.md">हिन्दी</a> · <a href="README.ja.md">日本語</a> · <a href="README.pt-BR.md">Português (Brasil)</a> ·
+    <a href="README.ru.md">Русский</a> · <a href="README.zh-CN.md">简体中文</a>
+  </p>
+  <p><a href="docs/roadmap.md">نقشهٔ راه</a> · <a href="docs/language.md">راهنمای زبان</a> · <a href="docs/architecture.md">معماری</a></p>
 </div>
 
 ---
 
-## C÷ چیه؟
+## ✨ C÷ چیست؟
 
-C÷ یا C-Divide یک پروژه‌ی متن‌باز برای ساخت زبان برنامه‌نویسی‌ای است که یادگیری‌اش راحت باشد، اما در آینده برای پروژه‌های حرفه‌ای هم ابزار کافی داشته باشد.
+C÷ یا **C-Divide** یک پروژهٔ متن‌باز برای ساخت زبان برنامه‌نویسی‌ای است که یادگیری آن برای تازه‌کارها ساده باشد، اما در آینده ساختار و ابزار لازم برای نرم‌افزارهای جدی را هم داشته باشد.
 
-هدف نهایی، یک زبان کامپایل‌شونده‌ی بومی با مدیریت حافظه‌ی خودکار و دستی، کتابخانه‌ی استاندارد و ابزارهای توسعه‌ی مناسب است.
+هدف بلندمدت، زبانی **کامپایل‌شونده به فایل اجرایی بومی** با امکان مدیریت خودکار و دستی حافظه، کتابخانهٔ استاندارد و ابزارهای مناسب توسعه است.
 
-> <strong>وضعیت واقعی پروژه:</strong> در حال حاضر Lexer و Parser اولیه ساخته شده‌اند. یعنی می‌توانیم توکن‌ها و ساختار دستورات را بررسی کنیم؛ اما هنوز اجرای برنامه و تولید فایل اجرایی بومی پیاده‌سازی نشده است.
+> **وضعیت واقعی پروژه:** در مخزن فعلی، پایهٔ اولیهٔ Lexer، Parser و بررسی دستورها وجود دارد. هنوز برنامه‌های C÷ اجرا نمی‌شوند و خروجی اجرایی بومی تولید نمی‌شود. پروژه در مسیر ساخت نسخهٔ کامل ۱٫۰ است.
 
-## یک نمونه از ظاهر زبان
+## 🚀 نمونه‌ای از زبان
 
-<pre><code class="language-cdiv">name = "Hello, C÷!";
+~~~cdiv
+name = "Hello, C÷!";
 print(name);
 
 age = 20;
-if age &gt;= 18 {
+if age >= 18 {
     print("Welcome!");
 } else {
     print("Keep learning!");
 }
 
-fn add(a: int, b: int) -&gt; int {
+fn add(a: int, b: int) -> int {
     return a + b;
-}</code></pre>
+}
+~~~
 
-## شروع سریع
+این کد سبک طراحی‌شدهٔ زبان را نشان می‌دهد. بخش فعلی Front End می‌تواند ساختارهای پشتیبانی‌شده را توکن‌سازی و از نظر نحوی بررسی کند؛ اجرای برنامه، تحلیل معنایی و بررسی نوع‌ها هنوز در دست توسعه‌اند. **کلیدواژه‌های خود زبان C÷ فعلاً انگلیسی هستند**؛ ترجمهٔ راهنماها به معنی پیاده‌سازی دستورهای فارسی یا زبان‌های دیگر نیست.
 
-### ۱. دریافت پروژه، بدون Git
+## 🧭 اصول طراحی
 
-برای دانلود سورس نیازی به حساب GitHub یا نصب Git نیست:
+| اصل | مسیر پروژه |
+| --- | --- |
+| خوانایی | واژه‌های آشنا، بلوک‌های مرتب و دستورهای قابل پیش‌بینی |
+| کارایی | هدف، تولید فایل اجرایی بومی است |
+| حافظه | مدیریت خودکار و کنترل صریح، با قواعد ایمنی مشخص |
+| سازگاری | ابتدا ویندوز و لینوکس؛ سپس پلتفرم‌های دیگر |
+| ابزارها | رابط خط فرمان روشن، خطایابی خوب، قالب‌بند و ابزار بسته‌ها |
+| دسترس‌پذیری | دانلود سورس و نصب ساده، بدون نیاز به یادگیری Git |
 
-<strong><a href="https://github.com/floppylib/C-Divide/archive/refs/heads/main.zip">⬇ دانلود مستقیم سورس به‌صورت ZIP</a></strong>
+## ⚡ شروع سریع
 
-فایل را از حالت فشرده خارج کن و پوشه را باز کن.
+### ۱. دریافت سورس، بدون Git
 
-### ۲. ساخت کامپایلر
+برای دانلود پروژه نیازی به حساب GitHub، نصب Git یا کار با ترمینال ندارید.
 
-پیش‌نیازها: کامپایلر C++20 و نسخه‌ی CMake 3.20 یا جدیدتر.
+**[⬇ دانلود مستقیم سورس به‌صورت ZIP](https://github.com/floppylib/C-Divide/archive/refs/heads/main.zip)**
 
-<strong>لینوکس:</strong>
+فایل را از حالت فشرده خارج کنید و پوشه را در ترمینال باز کنید. در صورت تمایل می‌توانید از Git استفاده کنید:
 
-<pre><code>cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+~~~sh
+git clone https://github.com/floppylib/C-Divide.git
+cd C-Divide
+~~~
+
+### ۲. ساخت پروژه
+
+پیش‌نیازها: کامپایلر C++20 و نسخهٔ CMake 3.20 یا جدیدتر.
+
+**لینوکس**
+
+~~~sh
+cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
 cmake --build build --parallel
-ctest --test-dir build --output-on-failure</code></pre>
+ctest --test-dir build --output-on-failure
+~~~
 
-<strong>ویندوز PowerShell:</strong>
+**ویندوز — PowerShell**
 
-<pre><code>cmake -S . -B build
+~~~powershell
+cmake -S . -B build
 cmake --build build --config Release
-ctest --test-dir build -C Release --output-on-failure</code></pre>
+ctest --test-dir build -C Release --output-on-failure
+~~~
 
-### ۳. امتحان ابزارها
+### ۳. امتحان ابزارهای توسعه
 
-<pre><code>cdiv help
+نام فایل اجرایی <code>cdiv</code> است (در ویندوز <code>cdiv.exe</code>).
+
+~~~sh
+cdiv help
 cdiv version
 cdiv lex examples/hello.cdiv
-cdiv check examples/hello.cdiv</code></pre>
+cdiv check examples/hello.cdiv
+~~~
 
-- دستور <code>lex</code> توکن‌های کد را نمایش می‌دهد.
-- دستور <code>check</code> ساختار دستوری و واژگانی کد را بررسی می‌کند.
+- دستور <code>lex</code> توکن‌ها و موقعیت آن‌ها در کد را نمایش می‌دهد.
+- دستور <code>check</code> ساختار واژگانی و دستوری را بررسی می‌کند.
 
-فعلاً برنامه‌های C÷ اجرا یا به فایل اجرایی مستقل تبدیل نمی‌شوند.
+این‌ها فرمان‌های توسعهٔ کامپایلر هستند؛ در حال حاضر برنامه را اجرا نمی‌کنند و فایل اجرایی بومی نمی‌سازند.
 
-## بخش‌های پروژه
+## 📦 دریافت‌ها
 
-- <code>src/</code> کد کامپایلر
-- <code>examples/</code> نمونه‌برنامه‌ها
-- <code>tests/</code> تست‌ها
-- <code>docs/</code> مستندات
-- <code>scripts/</code> ابزارهای نصب
-- <code>.github/workflows/</code> ساخت و تست خودکار
+- **کد منبع:** از لینک ZIP بالا استفاده کنید؛ حساب کاربری لازم نیست.
+- **ابزارهای کامپایلر آماده:** پس از ایجاد یک برچسب نسخه و موفقیت فرایند انتشار، بسته‌ها در [صفحهٔ Releases](https://github.com/floppylib/C-Divide/releases) قرار می‌گیرند.
+- **اسکریپت‌های نصب:** فایل‌های <code>scripts/install.sh</code> و <code>scripts/install.ps1</code> برای نصب فایل اجرایی ساخته‌شده در حساب کاربر در نظر گرفته شده‌اند.
 
-## مجوزها
+**هنوز بستهٔ آماده‌ای منتشر نشده است.** گردش‌کار انتشار آماده شده، اما فایل دانلودی تنها پس از ساخت موفق یک نسخهٔ برچسب‌گذاری‌شده منتشر خواهد شد.
 
-- سورس‌کد: MIT
-- مستندات: Creative Commons Attribution 4.0
+## 🧩 چه بخش‌هایی پیاده‌سازی شده‌اند؟
 
-راهنماهای کامل‌تر در <a href="docs/getting-started.md">مستندات</a> قرار دارند.
+| بخش | وضعیت |
+| --- | --- |
+| پروژهٔ C++20 و CMake | ✅ |
+| Lexer و گزارش موقعیت خطا | ✅ نسخهٔ اولیه |
+| Parser و بررسی دستورها | ✅ نسخهٔ اولیه |
+| دستورهای متغیر، تابع، شرط و حلقه در گرامر | ✅ شناسایی می‌شوند، اجرا نمی‌شوند |
+| گردش‌کار خودکار ساخت و تست | ✅ پیکربندی شده |
+| تولید کد بومی | 🛠 برنامه‌ریزی‌شده |
+| Runtime و اجرای برنامه | 🛠 برنامه‌ریزی‌شده |
+| تحلیل معنایی و نوع‌ها | 🛠 برنامه‌ریزی‌شده |
+| کتابخانهٔ استاندارد و سیستم ماژول | 🛠 برنامه‌ریزی‌شده |
+| مدل مدیریت حافظه | 🧭 در مرحلهٔ طراحی |
+| مدیر بسته، قالب‌بند و دیباگر | 🛠 برنامه‌ریزی‌شده |
+
+برای دیدن مراحل آینده، [نقشهٔ راه](docs/roadmap.md) را ببینید.
+
+## 📚 مستندات
+
+| راهنما | محتوا |
+| --- | --- |
+| [شروع به کار](docs/getting-started.md) | ساخت C÷ در ویندوز و لینوکس |
+| [راهنمای زبان](docs/language.md) | دستورهایی که Front End فعلی می‌شناسد |
+| [معماری](docs/architecture.md) | ساختار و بخش‌های کامپایلر |
+| [نقشهٔ راه](docs/roadmap.md) | مراحل برنامه‌ریزی‌شده |
+| [پرسش‌های متداول](docs/faq.md) | پاسخ پرسش‌های رایج |
+| [دانلودها](docs/downloads.md) | سورس و بسته‌های انتشار |
+
+راهنماهای فنی فعلاً ابتدا به انگلیسی نوشته می‌شوند. مشارکت برای ترجمهٔ آن‌ها هم خوش‌آمد است.
+
+## 🤝 مشارکت
+
+پیشنهاد، گزارش باگ، بهتر کردن مستندات و مشارکت در کد همگی ارزشمندند.
+
+- پیش از ارسال Pull Request، فایل [CONTRIBUTING.md](CONTRIBUTING.md) را بخوانید.
+- برای گزارش باگ و پیشنهاد قابلیت از قالب Issue استفاده کنید.
+- [قوانین رفتار جامعه](CODE_OF_CONDUCT.md) و [سیاست امنیتی](SECURITY.md) را مطالعه کنید.
+
+حتی یک گزارش دقیق از باگ یا مثال بهتر هم کمک بزرگی است.
+
+## 📜 مجوزها
+
+- **کد منبع:** [MIT](LICENSE)
+- **مستندات:** [Creative Commons Attribution 4.0](LICENSE-DOCS)
+
+در صورت اضافه شدن وابستگی‌های شخص ثالث، اطلاعات آن‌ها در [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) ثبت می‌شود.
+
+---
+
+<div align="center"><sub>متن‌باز ساخته می‌شود؛ برای یادگیری طراحی شده و برای رشد آماده است.</sub></div>
