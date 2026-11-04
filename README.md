@@ -153,7 +153,7 @@ See the [roadmap](docs/roadmap.md) for planned milestones.
 | [FAQ](docs/faq.md) | Common questions |
 | [Downloads](docs/downloads.md) | Source archives and release packages |
 
-The README is available in the languages listed above. The technical guides remain English-first for now. Translation contributions are welcome.
+The README is available in the languages listed above. The technical guides remain English-first for now. See [TRANSLATIONS.md](TRANSLATIONS.md) to help localize the project.
 
 ## 🤝 Community
 
