@@ -1,6 +1,8 @@
 <div align="center">
-  <img src="assets/IMG_20261104_222603.png" alt="Официальный логотип C÷" width="144">
+  <img src="assets/logo-padded.svg" alt="Официальный логотип C÷" width="144">
   <h1>C÷ · C-Divide</h1>
+  <p><strong>Загрузки:</strong> <a href="https://github.com/floppylib/C-Divide/archive/refs/heads/main.zip">Исходный код ZIP</a> · <a href="https://cmake.org/download/">CMake 3.20+</a> · <a href="https://visualstudio.microsoft.com/visual-cpp-build-tools/">Инструменты C++ для Windows</a> · <a href="https://www.msys2.org/">MSYS2 / GCC</a> · <a href="https://releases.llvm.org/">LLVM / Clang</a></p>
+  <p><em>Для сборки нужны CMake 3.20+ и компилятор C++20. Готовые бинарные файлы C÷ пока не опубликованы.</em></p>
   <p><strong>Легко изучать. Мощно создавать.</strong></p>
   <p>Понятный язык программирования, нацеленный на нативную компиляцию.</p>
 </div>
