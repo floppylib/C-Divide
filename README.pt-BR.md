@@ -1,7 +1,13 @@
 <div align="center">
   <img src="assets/logo-padded.svg" alt="Logotipo oficial do C÷" width="144">
   <h1>C÷ · C-Divide</h1>
-  <p><strong>Downloads:</strong> <a href="https://github.com/floppylib/C-Divide/archive/refs/heads/main.zip">Código-fonte ZIP</a> · <a href="https://cmake.org/download/">CMake 3.20+</a> · <a href="https://visualstudio.microsoft.com/visual-cpp-build-tools/">Ferramentas C++ para Windows</a> · <a href="https://www.msys2.org/">MSYS2 / GCC</a> · <a href="https://releases.llvm.org/">LLVM / Clang</a></p>
+    <p align="center">
+    <a href="https://github.com/floppylib/C-Divide/archive/refs/heads/main.zip"><img alt="Código-fonte ZIP" src="https://img.shields.io/badge/Download-Source%20ZIP-238636?style=for-the-badge&logo=github&logoColor=white"></a>
+    <a href="https://cmake.org/download/"><img alt="CMake 3.20+" src="https://img.shields.io/badge/Get-CMake%203.20%2B-064F8C?style=for-the-badge&logo=cmake&logoColor=white"></a>
+    <a href="https://visualstudio.microsoft.com/visual-cpp-build-tools/"><img alt="Ferramentas C++ para Windows" src="https://img.shields.io/badge/Windows-C%2B%2B%20Build%20Tools-5C2D91?style=for-the-badge&logo=visualstudio&logoColor=white"></a>
+    <a href="https://www.msys2.org/"><img alt="MSYS2 / GCC" src="https://img.shields.io/badge/GCC-MSYS2-4D4D4D?style=for-the-badge"></a>
+    <a href="https://releases.llvm.org/"><img alt="LLVM / Clang" src="https://img.shields.io/badge/Clang-LLVM-E36F1E?style=for-the-badge"></a>
+  </p>
   <p><em>Para compilar, você precisa do CMake 3.20+ e de um compilador C++20. Ainda não há binários pré-compilados do C÷.</em></p>
   <p><strong>Fácil de aprender. Poderoso para criar.</strong></p>
   <p>Uma linguagem de programação legível com objetivo de compilação nativa.</p>
