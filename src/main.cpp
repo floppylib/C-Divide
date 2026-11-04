@@ -485,12 +485,15 @@ int run_source_file(const std::string& path) {
 }
 
 void print_help() {
-    std::cout << "C÷ compiler front end\n"
+    std::cout << "C÷ native compiler\n"
               << "Usage:\n"
-              << "  cdiv help                 Show this help\n"
-              << "  cdiv version              Show version\n"
-              << "  cdiv lex <file.cdiv>      Print lexical tokens\n"
-              << "  cdiv check <file.cdiv>    Check lexical and syntactic correctness\n";
+              << "  cdiv help                         Show this help\n"
+              << "  cdiv version                      Show version\n"
+              << "  cdiv lex <file.cdiv>              Print lexical tokens\n"
+              << "  cdiv check <file.cdiv>            Check source syntax\n"
+              << "  cdiv build <file.cdiv> [-o path]  Build a native executable\n"
+              << "  cdiv run <file.cdiv>              Build and run a program\n"
+              << "\nSet CXX to choose the host C++20 compiler (g++, clang++, or cl).\n";
 }
 
 } // namespace cdiv
@@ -502,21 +505,21 @@ int main(int argc, char** argv) {
     const std::string command = argv[1];
     if (command == "help" || command == "--help" || command == "-h") { print_help(); return 0; }
     if (command == "version" || command == "--version") {
-        std::cout << "C÷ 0.2.0 (native backend preview)\\n";
+        std::cout << "C÷ 0.2.0 (native backend preview)\n";
         return 0;
     }
 
     try {
         if (command == "build") {
             if (argc != 3 && argc != 5) {
-                std::cerr << "error: usage: cdiv build <file.cdiv> [-o output]\\n";
+                std::cerr << "error: usage: cdiv build <file.cdiv> [-o output]\n";
                 return 2;
             }
             const std::string path = argv[2];
             std::filesystem::path output;
             if (argc == 5) {
                 if (std::string(argv[3]) != "-o") {
-                    std::cerr << "error: expected '-o' before output path\\n";
+                    std::cerr << "error: expected '-o' before output path\n";
                     return 2;
                 }
                 output = argv[4];
@@ -528,25 +531,25 @@ int main(int argc, char** argv) {
 #endif
             }
             const int result = build_source_file(path, output);
-            if (result == 0) std::cout << "Built native executable: " << output.string() << '\\n';
+            if (result == 0) std::cout << "Built native executable: " << output.string() << '\n';
             return result;
         }
 
         if (command == "run") {
             if (argc != 3) {
-                std::cerr << "error: usage: cdiv run <file.cdiv>\\n";
+                std::cerr << "error: usage: cdiv run <file.cdiv>\n";
                 return 2;
             }
             return run_source_file(argv[2]);
         }
 
         if (command != "lex" && command != "check") {
-            std::cerr << "error: unknown command '" << command << "'\\n";
+            std::cerr << "error: unknown command '" << command << "'\n";
             print_help();
             return 2;
         }
         if (argc != 3) {
-            std::cerr << "error: command '" << command << "' requires one source file\\n";
+            std::cerr << "error: command '" << command << "' requires one source file\n";
             return 2;
         }
 
@@ -563,7 +566,7 @@ int main(int argc, char** argv) {
             for (const auto& token : tokens) {
                 std::cout << token.line << ':' << token.column << "  " << kind_name(token.kind);
                 if (!token.lexeme.empty()) std::cout << "  '" << token.lexeme << "'";
-                std::cout << '\\n';
+                std::cout << '\n';
             }
             return 0;
         }
@@ -573,10 +576,10 @@ int main(int argc, char** argv) {
             print_diagnostics(parser.diagnostics(), path);
             return 1;
         }
-        std::cout << "OK: " << path << " passed lexical and syntax checks.\\n";
+        std::cout << "OK: " << path << " passed lexical and syntax checks.\n";
         return 0;
     } catch (const std::exception& error) {
-        std::cerr << "error: " << error.what() << '\\n';
+        std::cerr << "error: " << error.what() << '\n';
         return 1;
     }
 }
