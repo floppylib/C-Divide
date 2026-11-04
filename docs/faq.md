@@ -2,7 +2,7 @@
 
 ## Is C÷ ready to write applications?
 
-Not yet. The repository currently provides a lexer and syntax checker. Program execution, type checking, and native-code generation are still planned.
+Not as a production-ready 1.0 language. The current preview can compile and run a supported subset through a host C++20 compiler. Full type checking, a complete standard library, robust modules, memory management, and stable native backends are still under development.
 
 ## Do I need Git or a GitHub account?
 
