@@ -24,7 +24,7 @@ C÷ (pronunciado **C-Divide**) es un proyecto de lenguaje de programación de c�
 
 La visión a largo plazo es un **lenguaje compilado a código nativo**, con opciones de gestión automática y explícita de memoria, una biblioteca estándar y herramientas de desarrollo propias.
 
-> **Estado real:** el repositorio contiene una primera base de lexer, parser y comprobación sintáctica. Todavía no ejecuta programas C÷ ni genera ejecutables nativos. El objetivo del proyecto es llegar a una versión 1.0 completa.
+> **Estado actual:** C÷ incluye un lexer, parser y comprobador sintáctico iniciales, además de un backend nativo experimental. `cdiv build` y `cdiv run` traducen la parte compatible del lenguaje a C++20 y utilizan el compilador C++ del sistema para generar un ejecutable nativo. El análisis semántico completo, la comprobación de tipos, los módulos, la biblioteca estándar y el modelo de memoria definitivo siguen en desarrollo. Todavía no es la versión 1.0 final.
 
 ## Un vistazo a la sintaxis
 
@@ -79,7 +79,7 @@ cdiv lex examples/hello.cdiv
 cdiv check examples/hello.cdiv
 ~~~
 
-<code>lex</code> muestra los tokens y sus posiciones. <code>check</code> comprueba la estructura léxica y gramatical. Estos comandos no ejecutan programas ni generan ejecutables nativos.
+<code>lex</code> muestra tokens, <code>check</code> revisa la sintaxis, <code>build</code> crea un ejecutable nativo y <code>run</code> compila y ejecuta el programa. Los dos últimos comandos requieren un compilador C++20.
 
 ## Estado de desarrollo
 
@@ -88,9 +88,9 @@ cdiv check examples/hello.cdiv
 | Proyecto C++20 / CMake | ✅ |
 | Lexer y diagnósticos de posición | ✅ Versión inicial |
 | Parser y comprobador sintáctico | ✅ Versión inicial |
-| Gramática de variables, funciones, condiciones y bucles | ✅ Se reconoce, no se ejecuta |
-| Generación de código nativo | 🛠 Planificado |
-| Runtime y ejecución | 🛠 Planificado |
+| Variables, funciones, condiciones y bucles | ✅ Se compila la parte compatible |
+| Generación nativa mediante C++20 | ✅ Vista previa inicial |
+| Comandos `cdiv build` y `cdiv run` | ✅ Vista previa inicial |
 | Análisis semántico y de tipos | 🛠 Planificado |
 | Biblioteca estándar, módulos y gestor de paquetes | 🛠 Planificado |
 | Formateador y depurador | 🛠 Planificado |
