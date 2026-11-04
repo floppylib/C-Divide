@@ -1,6 +1,6 @@
 # C÷ language design
 
-**Status: design proposal for the 0.x series.** This document defines the direction of the language; it is not a claim that these features are already implemented by the 0.2.0 preview compiler. The implementation status remains tracked in the [roadmap](roadmap.md).
+**Status: design proposal for the 0.x series.** This document defines the direction of the language; it is not a claim that these features are already implemented by the 0.2.1 preview compiler. The implementation status remains tracked in the [roadmap](roadmap.md).
 
 ## Vision
 
