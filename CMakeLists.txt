@@ -1,8 +1,9 @@
 cmake_minimum_required(VERSION 3.20)
-project(CDivide VERSION 0.1.0 LANGUAGES CXX)
+project(CDivide VERSION 0.2.0 LANGUAGES CXX)
 option(CDIVIDE_WARNINGS_AS_ERRORS "Treat compiler warnings as errors" OFF)
 add_executable(cdiv src/main.cpp)
 target_compile_features(cdiv PRIVATE cxx_std_20)
+target_compile_definitions(cdiv PRIVATE CDIV_DEFAULT_CXX=\"${CMAKE_CXX_COMPILER}\")
 set_target_properties(cdiv PROPERTIES CXX_EXTENSIONS OFF)
 if(MSVC)
   target_compile_options(cdiv PRIVATE /W4)
@@ -24,6 +25,7 @@ if(BUILD_TESTING)
       -DCDIV_EXECUTABLE=$<TARGET_FILE:cdiv>
       -DCDIV_SOURCE=${CMAKE_CURRENT_SOURCE_DIR}/tests/invalid.cdiv
       -P ${CMAKE_CURRENT_SOURCE_DIR}/tests/expect_failure.cmake)
+  add_test(NAME native_run_smoke COMMAND cdiv run ${CMAKE_CURRENT_SOURCE_DIR}/tests/smoke.cdiv)
 endif()
 include(GNUInstallDirs)
 install(TARGETS cdiv RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
