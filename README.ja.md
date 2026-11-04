@@ -1,7 +1,13 @@
 <div align="center">
   <img src="assets/logo-padded.svg" alt="C÷ 公式ロゴ" width="144">
   <h1>C÷ · C-Divide</h1>
-  <p><strong>ダウンロード：</strong> <a href="https://github.com/floppylib/C-Divide/archive/refs/heads/main.zip">ソースコード ZIP</a> · <a href="https://cmake.org/download/">CMake 3.20+</a> · <a href="https://visualstudio.microsoft.com/visual-cpp-build-tools/">Windows C++ ビルドツール</a> · <a href="https://www.msys2.org/">MSYS2 / GCC</a> · <a href="https://releases.llvm.org/">LLVM / Clang</a></p>
+    <p align="center">
+    <a href="https://github.com/floppylib/C-Divide/archive/refs/heads/main.zip"><img alt="ソースコード ZIP" src="https://img.shields.io/badge/Download-Source%20ZIP-238636?style=for-the-badge&logo=github&logoColor=white"></a>
+    <a href="https://cmake.org/download/"><img alt="CMake 3.20+" src="https://img.shields.io/badge/Get-CMake%203.20%2B-064F8C?style=for-the-badge&logo=cmake&logoColor=white"></a>
+    <a href="https://visualstudio.microsoft.com/visual-cpp-build-tools/"><img alt="Windows C++ ビルドツール" src="https://img.shields.io/badge/Windows-C%2B%2B%20Build%20Tools-5C2D91?style=for-the-badge&logo=visualstudio&logoColor=white"></a>
+    <a href="https://www.msys2.org/"><img alt="MSYS2 / GCC" src="https://img.shields.io/badge/GCC-MSYS2-4D4D4D?style=for-the-badge"></a>
+    <a href="https://releases.llvm.org/"><img alt="LLVM / Clang" src="https://img.shields.io/badge/Clang-LLVM-E36F1E?style=for-the-badge"></a>
+  </p>
   <p><em>ソースのビルドには CMake 3.20 以降と C++20 コンパイラが必要です。C÷ のビルド済みバイナリはまだ公開されていません。</em></p>
   <p><strong>学びやすく、開発に強い。</strong></p>
   <p>読みやすさを重視し、ネイティブコンパイルを目指すプログラミング言語です。</p>
