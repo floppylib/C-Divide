@@ -156,6 +156,7 @@ cdiv build examples/hello.cdiv
 | [راهنمای زبان](docs/language.md) | دستورهایی که Front End فعلی می‌شناسد |
 | [معماری](docs/architecture.md) | ساختار و بخش‌های کامپایلر |
 | [Backend بومی](docs/native-backend.md) | روند ساخت فایل اجرایی و محدودیت‌های فعلی |
+| [تاریخچه تغییرات](CHANGELOG.md) | نسخه‌ها و تغییرات پیاده‌سازی |
 | [نقشهٔ راه](docs/roadmap.md) | مراحل برنامه‌ریزی‌شده |
 | [پرسش‌های متداول](docs/faq.md) | پاسخ پرسش‌های رایج |
 | [دانلودها](docs/downloads.md) | سورس و بسته‌های انتشار |
