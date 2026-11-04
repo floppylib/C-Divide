@@ -1,6 +1,8 @@
 <div align="center">
-  <img src="assets/IMG_20261104_222603.png" alt="C÷ 公式ロゴ" width="144">
+  <img src="assets/logo-padded.svg" alt="C÷ 公式ロゴ" width="144">
   <h1>C÷ · C-Divide</h1>
+  <p><strong>ダウンロード：</strong> <a href="https://github.com/floppylib/C-Divide/archive/refs/heads/main.zip">ソースコード ZIP</a> · <a href="https://cmake.org/download/">CMake 3.20+</a> · <a href="https://visualstudio.microsoft.com/visual-cpp-build-tools/">Windows C++ ビルドツール</a> · <a href="https://www.msys2.org/">MSYS2 / GCC</a> · <a href="https://releases.llvm.org/">LLVM / Clang</a></p>
+  <p><em>ソースのビルドには CMake 3.20 以降と C++20 コンパイラが必要です。C÷ のビルド済みバイナリはまだ公開されていません。</em></p>
   <p><strong>学びやすく、開発に強い。</strong></p>
   <p>読みやすさを重視し、ネイティブコンパイルを目指すプログラミング言語です。</p>
 </div>
