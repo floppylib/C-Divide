@@ -315,7 +315,10 @@ inline int compile_cpp_file(const std::filesystem::path& cpp_file,
     const std::string compiler_name = std::filesystem::path(compiler).filename().string();
     const bool msvc = compiler_name == "cl" || compiler_name == "cl.exe";
     if (msvc) {
+        auto object_file = cpp_file;
+        object_file.replace_extension(".obj");
         command = shell_quote(compiler) + " /nologo /std:c++20 /EHsc /O2 " + shell_quote(cpp_file.string()) +
+                  " /Fo:" + shell_quote(object_file.string()) +
                   " /Fe:" + shell_quote(output_file.string());
     } else {
         command = shell_quote(compiler) + " -std=c++20 -O2 " + shell_quote(cpp_file.string()) +
@@ -342,6 +345,11 @@ inline int build_native_program(const std::string& cpp_source,
     const int result = compile_cpp_file(cpp_file, output_file);
     std::error_code ignored;
     std::filesystem::remove(cpp_file, ignored);
+#ifdef _WIN32
+    auto object_file = cpp_file;
+    object_file.replace_extension(".obj");
+    std::filesystem::remove(object_file, ignored);
+#endif
     if (result != 0) {
         std::cerr << "error: native compilation failed. Install a C++20 compiler or set CXX.\n";
         return 1;
