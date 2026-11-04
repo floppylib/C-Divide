@@ -1,6 +1,8 @@
 <div align="center">
-  <img src="assets/IMG_20261104_222603.png" alt="C÷ का आधिकारिक लोगो" width="144">
+  <img src="assets/logo-padded.svg" alt="C÷ का आधिकारिक लोगो" width="144">
   <h1>C÷ · C-Divide</h1>
+  <p><strong>डाउनलोड:</strong> <a href="https://github.com/floppylib/C-Divide/archive/refs/heads/main.zip">सोर्स ZIP</a> · <a href="https://cmake.org/download/">CMake 3.20+</a> · <a href="https://visualstudio.microsoft.com/visual-cpp-build-tools/">Windows C++ Build Tools</a> · <a href="https://www.msys2.org/">MSYS2 / GCC</a> · <a href="https://releases.llvm.org/">LLVM / Clang</a></p>
+  <p><em>सोर्स बनाने के लिए CMake 3.20+ और C++20 compiler चाहिए। C÷ के prebuilt binaries अभी उपलब्ध नहीं हैं।</em></p>
   <p><strong>सीखना आसान। निर्माण के लिए शक्तिशाली।</strong></p>
   <p>एक सरल और पठनीय प्रोग्रामिंग भाषा, जिसका लक्ष्य नेटिव कंपाइलेशन है।</p>
 </div>
