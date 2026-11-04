@@ -162,11 +162,12 @@ See the [roadmap](docs/roadmap.md) for planned milestones.
 | [Getting started](docs/getting-started.md) | Build C÷ on Windows or Linux |
 | [Language guide](docs/language.md) | Syntax recognized by the current front end |
 | [Architecture](docs/architecture.md) | Compiler structure and components |
+| [Native backend](docs/native-backend.md) | How native builds work and current limits |
 | [Roadmap](docs/roadmap.md) | Planned milestones |
 | [FAQ](docs/faq.md) | Common questions |
 | [Downloads](docs/downloads.md) | Source archives and release packages |
 
-The README is available in the languages listed above. The technical guides remain English-first for now. See [TRANSLATIONS.md](TRANSLATIONS.md) to help localize the project.
+The native backend preview and its current boundaries are described in [Native backend](docs/native-backend.md). The README is available in the languages listed above. The technical guides remain English-first for now. See [TRANSLATIONS.md](TRANSLATIONS.md) to help localize the project.
 
 ## 🤝 Community
 
