@@ -8,7 +8,7 @@ execute_process(
   OUTPUT_VARIABLE build_stdout
   ERROR_VARIABLE build_stderr
 )
-if(NOT build_result EQUAL 0)
+if(NOT build_result STREQUAL "0")
   message(FATAL_ERROR "cdiv build failed:\n${build_stdout}\n${build_stderr}")
 endif()
 
@@ -18,7 +18,7 @@ execute_process(
   OUTPUT_VARIABLE program_stdout
   ERROR_VARIABLE program_stderr
 )
-if(NOT program_result EQUAL 0)
+if(NOT program_result STREQUAL "0")
   message(FATAL_ERROR "Native program failed:\n${program_stdout}\n${program_stderr}")
 endif()
 
