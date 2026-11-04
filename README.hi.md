@@ -1,7 +1,13 @@
 <div align="center">
   <img src="assets/logo-padded.svg" alt="C÷ का आधिकारिक लोगो" width="144">
   <h1>C÷ · C-Divide</h1>
-  <p><strong>डाउनलोड:</strong> <a href="https://github.com/floppylib/C-Divide/archive/refs/heads/main.zip">सोर्स ZIP</a> · <a href="https://cmake.org/download/">CMake 3.20+</a> · <a href="https://visualstudio.microsoft.com/visual-cpp-build-tools/">Windows C++ Build Tools</a> · <a href="https://www.msys2.org/">MSYS2 / GCC</a> · <a href="https://releases.llvm.org/">LLVM / Clang</a></p>
+    <p align="center">
+    <a href="https://github.com/floppylib/C-Divide/archive/refs/heads/main.zip"><img alt="सोर्स ZIP" src="https://img.shields.io/badge/Download-Source%20ZIP-238636?style=for-the-badge&logo=github&logoColor=white"></a>
+    <a href="https://cmake.org/download/"><img alt="CMake 3.20+" src="https://img.shields.io/badge/Get-CMake%203.20%2B-064F8C?style=for-the-badge&logo=cmake&logoColor=white"></a>
+    <a href="https://visualstudio.microsoft.com/visual-cpp-build-tools/"><img alt="Windows C++ Build Tools" src="https://img.shields.io/badge/Windows-C%2B%2B%20Build%20Tools-5C2D91?style=for-the-badge&logo=visualstudio&logoColor=white"></a>
+    <a href="https://www.msys2.org/"><img alt="MSYS2 / GCC" src="https://img.shields.io/badge/GCC-MSYS2-4D4D4D?style=for-the-badge"></a>
+    <a href="https://releases.llvm.org/"><img alt="LLVM / Clang" src="https://img.shields.io/badge/Clang-LLVM-E36F1E?style=for-the-badge"></a>
+  </p>
   <p><em>सोर्स बनाने के लिए CMake 3.20+ और C++20 compiler चाहिए। C÷ के prebuilt binaries अभी उपलब्ध नहीं हैं।</em></p>
   <p><strong>सीखना आसान। निर्माण के लिए शक्तिशाली।</strong></p>
   <p>एक सरल और पठनीय प्रोग्रामिंग भाषा, जिसका लक्ष्य नेटिव कंपाइलेशन है।</p>
