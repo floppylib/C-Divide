@@ -14,6 +14,19 @@ The target is a complete C÷ 1.0 release. Work may happen in parallel, but featu
 - [x] Initial `cdiv build` and `cdiv run` commands
 - [x] Native execution smoke test in CI
 
+## Milestones toward 1.0
+
+These are development targets, not promises that a release is already complete.
+
+1. **0.3 — Front-end architecture:** persistent AST, source spans, parser recovery, and separate compiler stages.
+2. **0.4 — Semantic core:** scopes, name resolution, static types, conversions, function checking, and clear C÷-level diagnostics.
+3. **0.5 — Language essentials:** finalized expressions and control flow, strings and collections, and a defined module/import system.
+4. **0.6 — Runtime and memory:** standard-library foundation, error behavior, and a documented, testable memory model.
+5. **0.7 — Stable native compiler:** replace the temporary C++ source emitter with a backend whose behavior is defined by the C÷ specification.
+6. **0.8 — Developer tools:** formatter, useful debug information, language-server foundation, and package/dependency design.
+7. **0.9 — Release candidate:** cross-platform compatibility testing, regression tests, reproducible builds, installers, and published binaries.
+8. **1.0 — Language release:** freeze the specification, publish complete documentation, pass the supported-platform test matrix, and publish signed release artifacts.
+
 ## Language core
 
 - [ ] Finalize the 1.0 language specification
