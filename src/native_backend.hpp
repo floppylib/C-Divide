@@ -94,7 +94,8 @@ private:
         bool first = true;
         for (const auto& token : expression) {
             if (!first) out << ' ';
-            out << token.lexeme;
+            if (token.kind == Kind::String) out << "std::string(" << token.lexeme << ")";
+            else out << token.lexeme;
             first = false;
         }
         return out.str();
@@ -296,7 +297,15 @@ inline std::filesystem::path unique_temp_path(const std::string& suffix) {
 inline int compile_cpp_file(const std::filesystem::path& cpp_file,
                             const std::filesystem::path& output_file) {
     const char* configured = std::getenv("CXX");
+#ifdef CDIV_DEFAULT_CXX
+    const std::string compiler = (configured && *configured) ? configured : CDIV_DEFAULT_CXX;
+#else
+#ifdef _WIN32
+    const std::string compiler = (configured && *configured) ? configured : "cl";
+#else
     const std::string compiler = (configured && *configured) ? configured : "c++";
+#endif
+#endif
     std::error_code ec;
     if (!output_file.parent_path().empty())
         std::filesystem::create_directories(output_file.parent_path(), ec);
@@ -305,14 +314,14 @@ inline int compile_cpp_file(const std::filesystem::path& cpp_file,
 #ifdef _WIN32
     const bool msvc = compiler == "cl" || compiler == "cl.exe";
     if (msvc) {
-        command = compiler + " /nologo /std:c++20 /EHsc /O2 " + shell_quote(cpp_file.string()) +
+        command = shell_quote(compiler) + " /nologo /std:c++20 /EHsc /O2 " + shell_quote(cpp_file.string()) +
                   " /Fe:" + shell_quote(output_file.string());
     } else {
-        command = compiler + " -std=c++20 -O2 " + shell_quote(cpp_file.string()) +
+        command = shell_quote(compiler) + " -std=c++20 -O2 " + shell_quote(cpp_file.string()) +
                   " -o " + shell_quote(output_file.string());
     }
 #else
-    command = compiler + " -std=c++20 -O2 " + shell_quote(cpp_file.string()) +
+    command = shell_quote(compiler) + " -std=c++20 -O2 " + shell_quote(cpp_file.string()) +
               " -o " + shell_quote(output_file.string());
 #endif
     return std::system(command.c_str());
