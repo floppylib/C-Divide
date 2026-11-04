@@ -24,7 +24,7 @@ C÷ (उच्चारण **C-Divide**) एक ओपन-सोर्स प्
 
 दीर्घकालिक लक्ष्य एक ऐसी **भाषा बनाना है जो नेटिव एक्ज़ीक्यूटेबल कोड में कंपाइल हो सके**, जिसमें मेमोरी का ऑटोमैटिक और स्पष्ट नियंत्रण, एक स्टैंडर्ड लाइब्रेरी और डेवलपर टूल शामिल हों।
 
-> **वर्तमान स्थिति:** इस रिपॉज़िटरी में lexer, parser और syntax checker का शुरुआती आधार मौजूद है। यह अभी C÷ प्रोग्राम चलाता नहीं है और नेटिव executable फ़ाइलें भी नहीं बनाता। परियोजना को पूर्ण 1.0 रिलीज़ तक विकसित किया जा रहा है।
+> **वर्तमान स्थिति:** C÷ में शुरुआती lexer, parser और syntax checker के साथ एक प्रयोगात्मक native backend भी है। `cdiv build` और `cdiv run` भाषा के समर्थित हिस्से को C++20 में बदलकर सिस्टम के C++ compiler से native executable बनाते हैं। पूर्ण semantic analysis, type checking, modules, standard library और memory model अभी विकास में हैं। यह अभी अंतिम 1.0 रिलीज़ नहीं है।
 
 ## सिंटैक्स का एक उदाहरण
 
@@ -77,9 +77,11 @@ cdiv help
 cdiv version
 cdiv lex examples/hello.cdiv
 cdiv check examples/hello.cdiv
+cdiv run examples/hello.cdiv
+cdiv build examples/hello.cdiv
 ~~~
 
-<code>lex</code> tokens और उनके source positions दिखाता है। <code>check</code> lexical और grammatical structure की जाँच करता है। ये कमांड अभी प्रोग्राम नहीं चलाते और न ही native executable बनाते हैं।
+<code>lex</code> tokens दिखाता है, <code>check</code> syntax जाँचता है, <code>build</code> native executable बनाता है और <code>run</code> प्रोग्राम को compile करके चलाता है। आख़िरी दोनों commands के लिए C++20 compiler चाहिए।
 
 ## विकास की स्थिति
 
@@ -88,9 +90,9 @@ cdiv check examples/hello.cdiv
 | C++20 / CMake प्रोजेक्ट | ✅ |
 | Lexer और source-position diagnostics | ✅ शुरुआती संस्करण |
 | Parser और syntax checker | ✅ शुरुआती संस्करण |
-| Variables, functions, conditions और loops का grammar | ✅ पहचाना जाता है, चलता नहीं |
-| Native code generation | 🛠 योजनाबद्ध |
-| Runtime और program execution | 🛠 योजनाबद्ध |
+| Variables, functions, conditions और loops | ✅ समर्थित हिस्सा compile होता है |
+| C++20 native code generation | ✅ शुरुआती preview |
+| `cdiv build` और `cdiv run` | ✅ शुरुआती preview |
 | Semantic और type analysis | 🛠 योजनाबद्ध |
 | Standard library, modules और package manager | 🛠 योजनाबद्ध |
 | Formatter और debugger | 🛠 योजनाबद्ध |
