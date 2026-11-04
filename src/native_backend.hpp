@@ -312,7 +312,8 @@ inline int compile_cpp_file(const std::filesystem::path& cpp_file,
 
     std::string command;
 #ifdef _WIN32
-    const bool msvc = compiler == "cl" || compiler == "cl.exe";
+    const std::string compiler_name = std::filesystem::path(compiler).filename().string();
+    const bool msvc = compiler_name == "cl" || compiler_name == "cl.exe";
     if (msvc) {
         command = shell_quote(compiler) + " /nologo /std:c++20 /EHsc /O2 " + shell_quote(cpp_file.string()) +
                   " /Fe:" + shell_quote(output_file.string());
