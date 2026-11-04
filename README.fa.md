@@ -4,12 +4,14 @@
   <p><img alt="Built with ChatGPT" src="https://img.shields.io/badge/Built%20with-ChatGPT-10A37F?style=for-the-badge&logo=openai&logoColor=white"></p>
     <p align="center">
     <a href="https://github.com/floppylib/C-Divide/archive/refs/heads/main.zip"><img alt="دانلود مستقیم سورس C÷ (ZIP)" src="https://img.shields.io/badge/Download-Source%20ZIP-238636?style=for-the-badge&logo=github&logoColor=white"></a>
+    <a href="https://github.com/floppylib/C-Divide/releases"><img alt="انتشارها" src="https://img.shields.io/badge/GitHub-Releases-7C3AED?style=for-the-badge&logo=github&logoColor=white"></a>
+    <a href="https://github.com/users/floppylib/packages/container/package/c-divide"><img alt="بسته‌ها" src="https://img.shields.io/badge/GitHub-Packages-2496ED?style=for-the-badge&logo=docker&logoColor=white"></a>
     <a href="https://cmake.org/download/"><img alt="دانلود CMake 3.20+" src="https://img.shields.io/badge/Get-CMake%203.20%2B-064F8C?style=for-the-badge&logo=cmake&logoColor=white"></a>
     <a href="https://visualstudio.microsoft.com/visual-cpp-build-tools/"><img alt="ابزار کامپایل C++ برای ویندوز" src="https://img.shields.io/badge/Windows-C%2B%2B%20Build%20Tools-5C2D91?style=for-the-badge&logo=visualstudio&logoColor=white"></a>
     <a href="https://www.msys2.org/"><img alt="MSYS2 و GCC" src="https://img.shields.io/badge/GCC-MSYS2-4D4D4D?style=for-the-badge"></a>
     <a href="https://releases.llvm.org/"><img alt="LLVM / Clang" src="https://img.shields.io/badge/Clang-LLVM-E36F1E?style=for-the-badge"></a>
   </p>
-  <p><em>برای ساخت پروژه به CMake نسخهٔ 3.20 یا جدیدتر و یک کامپایلر C++20 نیاز دارید. فایل اجرایی آمادهٔ C÷ هنوز منتشر نشده است.</em></p>
+  <p><em>برای ساخت پروژه به CMake نسخهٔ 3.20 یا جدیدتر و یک کامپایلر C++20 نیاز دارید. انتشار اولیهٔ فایل اجرایی و بستهٔ کانتینری برای انتشار توسط نگه‌دارنده آماده شده‌اند.</em></p>
   <p><strong>یادگیری ساده؛ قدرت برای ساختن پروژه‌های بزرگ.</strong></p>
   <p>یک زبان برنامه‌نویسی خوانا با هدف کامپایل مستقیم به فایل اجرایی بومی.</p>
   <p>
@@ -32,7 +34,7 @@
 
 C÷ یا **C-Divide** یک پروژهٔ متن‌باز برای ساخت زبان برنامه‌نویسی‌ای است که یادگیری آن برای تازه‌کارها ساده باشد، اما در آینده ساختار و ابزار لازم برای نرم‌افزارهای جدی را هم داشته باشد.
 
-هدف بلندمدت، زبانی **کامپایل‌شونده به فایل اجرایی بومی** با امکان مدیریت خودکار و دستی حافظه، کتابخانهٔ استاندارد و ابزارهای مناسب توسعه است.
+هدف بلندمدت، زبانی **کامپایل‌شونده به فایل اجرایی بومی** با پیش‌فرض‌های امن، کنترل سطح پایین، کتابخانهٔ استاندارد و ابزارهای توسعه است. مسیر طراحی پروفایل‌های Standard و System در [سند طراحی زبان](docs/language-design.md) آمده است؛ این موارد هدف طراحی‌اند و هنوز همگی پیاده‌سازی نشده‌اند.
 
 > **وضعیت فعلی پروژه:** C÷ علاوه بر Lexer، Parser و بررسی نحوی اولیه، یک backend آزمایشی برای کامپایل بومی دارد. دستورهای `cdiv build` و `cdiv run` بخش پشتیبانی‌شدهٔ زبان را به C++20 تبدیل می‌کنند و با کامپایلر C++ سیستم، فایل اجرایی واقعی می‌سازند. تحلیل معنایی کامل، بررسی نوع‌ها، ماژول‌ها، کتابخانهٔ استاندارد و مدل نهایی حافظه هنوز در دست توسعه‌اند؛ این نسخه هنوز C÷ 1.0 نهایی نیست.
 
@@ -123,10 +125,11 @@ cdiv build examples/hello.cdiv
 ## 📦 دریافت‌ها
 
 - **کد منبع:** از لینک ZIP بالا استفاده کنید؛ حساب کاربری لازم نیست.
-- **ابزارهای کامپایلر آماده:** پس از ایجاد یک برچسب نسخه و موفقیت فرایند انتشار، بسته‌ها در [صفحهٔ Releases](https://github.com/floppylib/C-Divide/releases) قرار می‌گیرند.
+- **بسته‌های کامپایلر ویندوز و لینوکس:** پس از انتشار موفق، فایل‌ها و checksum در [صفحهٔ Releases](https://github.com/floppylib/C-Divide/releases) قرار می‌گیرند.
+- **بستهٔ کانتینری:** ایمیج کامپایلر در [GitHub Packages](https://github.com/users/floppylib/packages/container/package/c-divide) با نام `ghcr.io/floppylib/c-divide` منتشر می‌شود. [راهنمای بسته‌ها](docs/packages.md) را ببینید.
 - **اسکریپت‌های نصب:** فایل‌های <code>scripts/install.sh</code> و <code>scripts/install.ps1</code> برای نصب فایل اجرایی ساخته‌شده در حساب کاربر در نظر گرفته شده‌اند.
 
-**هنوز بستهٔ آماده‌ای منتشر نشده است.** گردش‌کار انتشار آماده شده، اما فایل دانلودی تنها پس از ساخت موفق یک نسخهٔ برچسب‌گذاری‌شده منتشر خواهد شد.
+**وضعیت انتشار:** گردش‌کار آماده است، اما هنوز Release یا ایمیج عمومی منتشر نشده است. نگه‌دارنده باید از مسیر Actions → C÷ release and packages → Run workflow نسخهٔ `v0.2.1` را منتشر کند. بستهٔ GHCR در انتشار نخست ممکن است نیاز به تغییر سطح دسترسی به Public داشته باشد.
 
 ## 🧩 چه بخش‌هایی پیاده‌سازی شده‌اند؟
 
@@ -137,6 +140,8 @@ cdiv build examples/hello.cdiv
 | Parser و بررسی دستورها | ✅ نسخهٔ اولیه |
 | متغیرها، فراخوانی‌ها، تابع‌ها، شرط‌ها و حلقه‌ها | ✅ تجزیه می‌شوند؛ بخش پشتیبانی‌شده کامپایل می‌شود |
 | backend اولیهٔ تولید کد بومی C++20 | ✅ نسخهٔ آزمایشی |
+| کامنت چندخطی و خطای کامنت بسته‌نشده | ✅ |
+| دستور `cdiv doctor` برای گزارش Toolchain | ✅ |
 | دستورهای `cdiv build` و `cdiv run` | ✅ نسخهٔ آزمایشی |
 | گردش‌کار خودکار ساخت و تست | ✅ پیکربندی شده |
 | تحلیل معنایی و بررسی ایستای نوع‌ها | 🛠 برنامه‌ریزی‌شده |
@@ -155,6 +160,8 @@ cdiv build examples/hello.cdiv
 | [شروع به کار](docs/getting-started.md) | ساخت C÷ در ویندوز و لینوکس |
 | [راهنمای زبان](docs/language.md) | دستورهایی که Front End فعلی می‌شناسد |
 | [معماری](docs/architecture.md) | ساختار و بخش‌های کامپایلر |
+| [طراحی زبان](docs/language-design.md) | پروفایل‌های Standard/System، ایمنی و چشم‌انداز زبان |
+| [بسته‌ها](docs/packages.md) | دانلود Release و استفاده از کانتینر |
 | [Backend بومی](docs/native-backend.md) | روند ساخت فایل اجرایی و محدودیت‌های فعلی |
 | [تاریخچه تغییرات](CHANGELOG.md) | نسخه‌ها و تغییرات پیاده‌سازی |
 | [نقشهٔ راه](docs/roadmap.md) | مراحل برنامه‌ریزی‌شده |
