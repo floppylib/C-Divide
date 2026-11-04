@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">C-Divide mark</title>
+  <desc id="desc">A rounded geometric letter C paired with a division symbol.</desc>
+  <defs>
+    <linearGradient id="g" x1="22" y1="20" x2="232" y2="236" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8BE9C2"/>
+      <stop offset="1" stop-color="#37B7A0"/>
+    </linearGradient>
+  </defs>
+  <rect x="8" y="8" width="240" height="240" rx="64" fill="#101B24"/>
+  <path d="M160 65a78 78 0 1 0 0 126" fill="none" stroke="url(#g)" stroke-width="25" stroke-linecap="round"/>
+  <path d="M147 128h73" stroke="#F5FAF8" stroke-width="17" stroke-linecap="round"/>
+  <circle cx="182" cy="89" r="10" fill="#F5FAF8"/>
+  <circle cx="182" cy="167" r="10" fill="#F5FAF8"/>
+</svg>
