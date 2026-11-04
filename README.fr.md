@@ -24,7 +24,7 @@ C÷ (prononcé **C-Divide**) est un projet open source de langage de programmati
 
 À long terme, C÷ vise à devenir un **langage compilé en code natif**, avec des options de gestion automatique et explicite de la mémoire, une bibliothèque standard et des outils de développement intégrés.
 
-> **État réel :** ce dépôt contient actuellement les premières bases d’un lexer, d’un parser et d’un vérificateur syntaxique. Il n’exécute pas encore les programmes C÷ et ne produit pas de binaires natifs. Le projet avance vers une version 1.0 complète.
+> **État actuel :** C÷ comprend un lexer, un parser et un vérificateur syntaxique initiaux, ainsi qu’un backend natif expérimental. `cdiv build` et `cdiv run` traduisent la partie prise en charge du langage en C++20 et utilisent le compilateur C++ installé sur le système pour créer un exécutable natif. L’analyse sémantique complète, le typage, les modules, la bibliothèque standard et le modèle mémoire définitif sont encore en développement. Ce n’est pas encore la version 1.0 finale.
 
 ## Aperçu de la syntaxe
 
@@ -79,7 +79,7 @@ cdiv lex examples/hello.cdiv
 cdiv check examples/hello.cdiv
 ~~~
 
-<code>lex</code> affiche les tokens et leur position dans le fichier. <code>check</code> vérifie la structure lexicale et grammaticale. Ces commandes n’exécutent pas de programmes et ne génèrent pas encore de binaires natifs.
+<code>lex</code> affiche les tokens, <code>check</code> vérifie la syntaxe, <code>build</code> crée un exécutable natif et <code>run</code> compile puis exécute le programme. Ces deux dernières commandes nécessitent un compilateur C++20.
 
 ## État du développement
 
@@ -88,9 +88,9 @@ cdiv check examples/hello.cdiv
 | Projet C++20 / CMake | ✅ |
 | Lexer et diagnostics de position | ✅ Première version |
 | Parser et vérificateur syntaxique | ✅ Première version |
-| Grammaire des variables, fonctions, conditions et boucles | ✅ Reconnue, non exécutée |
-| Génération de code natif | 🛠 Prévue |
-| Runtime et exécution | 🛠 Prévus |
+| Variables, fonctions, conditions et boucles | ✅ La partie prise en charge est compilée |
+| Génération native via C++20 | ✅ Première préversion |
+| Commandes `cdiv build` et `cdiv run` | ✅ Première préversion |
 | Analyse sémantique et des types | 🛠 Prévue |
 | Bibliothèque standard, modules et gestionnaire de paquets | 🛠 Prévus |
 | Formateur et débogueur | 🛠 Prévus |
