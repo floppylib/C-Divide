@@ -82,7 +82,14 @@ Statements end with semicolons, except block-based statements (if, repeat, while
 
 ~~~cdiv
 // A single-line comment.
+
+/*
+   A multi-line comment.
+   The lexer ignores everything until the closing marker.
+*/
 ~~~
+
+Unterminated block comments are reported as lexical errors. Nested block comments are not supported in this preview.
 
 ## Current implementation boundary
 
