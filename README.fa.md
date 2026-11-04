@@ -1,6 +1,8 @@
 <div align="center">
-  <img src="assets/IMG_20261104_222603.png" alt="لوگوی رسمی C÷" width="144">
+  <img src="assets/logo-padded.svg" alt="لوگوی رسمی C÷" width="144">
   <h1>C÷ — سی‌دایواید</h1>
+  <p><strong>دریافت فایل‌های موردنیاز:</strong> <a href="https://github.com/floppylib/C-Divide/archive/refs/heads/main.zip">دانلود مستقیم سورس C÷ (ZIP)</a> · <a href="https://cmake.org/download/">دانلود CMake 3.20+</a> · <a href="https://visualstudio.microsoft.com/visual-cpp-build-tools/">ابزار کامپایل C++ برای ویندوز</a> · <a href="https://www.msys2.org/">MSYS2 و GCC</a> · <a href="https://releases.llvm.org/">LLVM / Clang</a></p>
+  <p><em>برای ساخت پروژه به CMake نسخهٔ 3.20 یا جدیدتر و یک کامپایلر C++20 نیاز دارید. فایل اجرایی آمادهٔ C÷ هنوز منتشر نشده است.</em></p>
   <p><strong>یادگیری ساده؛ قدرت برای ساختن پروژه‌های بزرگ.</strong></p>
   <p>یک زبان برنامه‌نویسی خوانا با هدف کامپایل مستقیم به فایل اجرایی بومی.</p>
   <p>
