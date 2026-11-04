@@ -1,0 +1,2 @@
+/* This block comment is intentionally not terminated.
+print("unreachable");
