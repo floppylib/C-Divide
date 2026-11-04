@@ -48,5 +48,5 @@ install(TARGETS cdiv RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
 install(FILES LICENSE DESTINATION ${CMAKE_INSTALL_DATADIR}/licenses/C-Divide)
 install(FILES README.md LICENSE-DOCS
   DESTINATION ${CMAKE_INSTALL_DATADIR}/doc/C-Divide)
-install(FILES docs/language.md docs/architecture.md docs/getting-started.md docs/native-backend.md
+install(FILES docs/language.md docs/language-design.md docs/architecture.md docs/getting-started.md docs/native-backend.md docs/packages.md
   DESTINATION ${CMAKE_INSTALL_DATADIR}/doc/C-Divide)
