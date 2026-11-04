@@ -170,6 +170,8 @@ private:
             case '/':
                 if (match('/')) {
                     while (!at_end() && peek() != '\n') advance();
+                } else if (match('*')) {
+                    scan_block_comment();
                 } else add(Kind::Slash);
                 return;
             case '"': scan_string(); return;
@@ -205,6 +207,18 @@ private:
         }
         advance();
         add(Kind::String);
+    }
+
+    void scan_block_comment() {
+        while (!at_end()) {
+            if (peek() == '*' && peek_next() == '/') {
+                advance();
+                advance();
+                return;
+            }
+            advance();
+        }
+        error("unterminated block comment");
     }
 
     void scan_number() {
@@ -485,11 +499,27 @@ int run_source_file(const std::string& path) {
     return result;
 }
 
+void print_doctor() {
+    std::cout << "C÷ environment diagnostics\\n"
+              << "Compiler: C++20\\n";
+#ifdef CDIV_DEFAULT_CXX
+    std::cout << "Build-time C++ compiler: " << CDIV_DEFAULT_CXX << "\\n";
+#endif
+    const char* override_compiler = std::getenv("CXX");
+    if (override_compiler && *override_compiler)
+        std::cout << "CXX override: " << override_compiler << "\\n";
+    else
+        std::cout << "CXX override: not set (using the compiler selected by CMake)\\n";
+    std::cout << "Backend: native C++20 source-emission preview\\n"
+              << "Target: host platform only; cross-compilation is not implemented\\n";
+}
+
 void print_help() {
     std::cout << "C÷ native compiler\n"
               << "Usage:\n"
               << "  cdiv help                         Show this help\n"
               << "  cdiv version                      Show version\n"
+              << "  cdiv doctor                       Inspect the compiler toolchain\n"
               << "  cdiv lex <file.cdiv>              Print lexical tokens\n"
               << "  cdiv check <file.cdiv>            Check source syntax\n"
               << "  cdiv build <file.cdiv> [-o path]  Build a native executable\n"
@@ -505,8 +535,9 @@ int main(int argc, char** argv) {
 
     const std::string command = argv[1];
     if (command == "help" || command == "--help" || command == "-h") { print_help(); return 0; }
+    if (command == "doctor") { print_doctor(); return 0; }
     if (command == "version" || command == "--version") {
-        std::cout << "C÷ 0.2.0 (native backend preview)\n";
+        std::cout << "C÷ 0.2.1 (native backend preview)\n";
         return 0;
     }
 
