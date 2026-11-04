@@ -14,7 +14,7 @@ These are host-native compiler tools. They do not currently provide cross-compil
 
 ## GitHub Packages
 
-The project publishes a container image to GitHub Container Registry:
+The release workflow is configured to publish a container image to GitHub Container Registry:
 
 `ghcr.io/floppylib/c-divide`
 
@@ -57,7 +57,7 @@ A maintainer can publish the first version from GitHub:
 3. Choose **Run workflow** on the `main` branch.
 4. Enter the version tag, for example `v0.2.1`.
 
-The workflow builds and tests Linux and Windows compiler archives before it creates the GitHub Release. It then builds and pushes the container image to GHCR.
+The workflow builds and tests Linux and Windows compiler archives before it creates the GitHub Release. It then builds and pushes the container image to GHCR. The package does not exist until this workflow has completed successfully.
 
 The first GHCR publication may be private by default. To allow anonymous public pulls, open the C÷ package page, go to **Package settings**, and change package visibility to **Public**. Do not publish a public package until the image and its contents have been reviewed.
 
