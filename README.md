@@ -163,6 +163,7 @@ See the [roadmap](docs/roadmap.md) for planned milestones.
 | [Language guide](docs/language.md) | Syntax recognized by the current front end |
 | [Architecture](docs/architecture.md) | Compiler structure and components |
 | [Native backend](docs/native-backend.md) | How native builds work and current limits |
+| [Changelog](CHANGELOG.md) | Version history and implementation boundaries |
 | [Roadmap](docs/roadmap.md) | Planned milestones |
 | [FAQ](docs/faq.md) | Common questions |
 | [Downloads](docs/downloads.md) | Source archives and release packages |
