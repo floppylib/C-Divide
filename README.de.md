@@ -24,7 +24,7 @@ C÷ (ausgesprochen **C-Divide**) ist ein Open-Source-Projekt für eine Programmi
 
 Langfristig soll C÷ eine **nativ kompilierte Sprache** mit automatischer und expliziter Speicherverwaltung, einer Standardbibliothek und eigenen Entwicklerwerkzeugen werden.
 
-> **Aktueller Stand:** Dieses Repository enthält derzeit eine erste Grundlage aus Lexer, Parser und Syntaxprüfung. C÷-Programme werden noch nicht ausgeführt und es werden noch keine nativen ausführbaren Dateien erzeugt. Das Projekt wird auf eine vollständige Version 1.0 hin entwickelt.
+> **Aktueller Stand:** C÷ enthält einen ersten Lexer, Parser und Syntaxprüfer sowie ein experimentelles natives Backend. `cdiv build` und `cdiv run` übersetzen den unterstützten Sprachumfang nach C++20 und nutzen den installierten C++-Compiler, um native Programme zu erzeugen. Vollständige semantische Analyse, Typprüfung, Module, Standardbibliothek und das endgültige Speichermodell sind noch in Arbeit. Dies ist noch nicht die fertige Version 1.0.
 
 ## Ein Blick auf die Syntax
 
@@ -79,7 +79,7 @@ cdiv lex examples/hello.cdiv
 cdiv check examples/hello.cdiv
 ~~~
 
-<code>lex</code> zeigt Tokens und ihre Positionen an. <code>check</code> prüft die lexikalische und grammatikalische Struktur. Diese Befehle führen keine Programme aus und erzeugen noch keine nativen Binärdateien.
+<code>lex</code> zeigt Tokens, <code>check</code> prüft die Syntax, <code>build</code> erstellt ein natives Programm und <code>run</code> kompiliert und startet es. Für die letzten beiden Befehle wird ein C++20-Compiler benötigt.
 
 ## Entwicklungsstand
 
@@ -88,9 +88,9 @@ cdiv check examples/hello.cdiv
 | C++20- / CMake-Projekt | ✅ |
 | Lexer und Positionsdiagnosen | ✅ Erste Version |
 | Parser und Syntaxprüfung | ✅ Erste Version |
-| Grammatik für Variablen, Funktionen, Bedingungen und Schleifen | ✅ Erkannt, nicht ausgeführt |
-| Native Codegenerierung | 🛠 Geplant |
-| Laufzeitumgebung und Programmausführung | 🛠 Geplant |
+| Variablen, Funktionen, Bedingungen und Schleifen | ✅ Unterstützter Teil wird kompiliert |
+| Native C++20-Codegenerierung | ✅ Erste Vorschau |
+| `cdiv build` und `cdiv run` | ✅ Erste Vorschau |
 | Semantische Analyse und Typprüfung | 🛠 Geplant |
 | Standardbibliothek, Module und Paketmanager | 🛠 Geplant |
 | Formatter und Debugger | 🛠 Geplant |
