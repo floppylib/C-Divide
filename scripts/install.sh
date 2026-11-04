@@ -16,7 +16,7 @@ if [ ! -x "$source_file" ]; then
   exit 1
 fi
 
-prefix=\${PREFIX:-"$HOME/.local"}
+prefix=${PREFIX:-"$HOME/.local"}
 destination="$prefix/bin"
 mkdir -p "$destination"
 install -m 755 "$source_file" "$destination/cdiv"
