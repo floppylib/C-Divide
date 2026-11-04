@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.20)
-project(CDivide VERSION 0.2.0 LANGUAGES CXX)
+project(CDivide VERSION 0.2.1 LANGUAGES CXX)
 option(CDIVIDE_WARNINGS_AS_ERRORS "Treat compiler warnings as errors" OFF)
 add_executable(cdiv src/main.cpp)
 target_compile_features(cdiv PRIVATE cxx_std_20)
@@ -20,6 +20,12 @@ include(CTest)
 if(BUILD_TESTING)
   add_test(NAME syntax_smoke COMMAND cdiv check ${CMAKE_CURRENT_SOURCE_DIR}/tests/smoke.cdiv)
   add_test(NAME lexer_smoke COMMAND cdiv lex ${CMAKE_CURRENT_SOURCE_DIR}/tests/smoke.cdiv)
+  add_test(NAME compiler_doctor COMMAND cdiv doctor)
+  add_test(NAME unterminated_block_comment_is_rejected
+    COMMAND ${CMAKE_COMMAND}
+      -DCDIV_EXECUTABLE=$<TARGET_FILE:cdiv>
+      -DCDIV_SOURCE=${CMAKE_CURRENT_SOURCE_DIR}/tests/invalid_block_comment.cdiv
+      -P ${CMAKE_CURRENT_SOURCE_DIR}/tests/expect_diagnostic.cmake)
   add_test(NAME invalid_syntax_is_rejected
     COMMAND ${CMAKE_COMMAND}
       -DCDIV_EXECUTABLE=$<TARGET_FILE:cdiv>
