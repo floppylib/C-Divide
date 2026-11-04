@@ -24,3 +24,4 @@ fn add(a: int, b: int) -> int {
 
 import math;
 result = add(2, 3);
+print(result);
