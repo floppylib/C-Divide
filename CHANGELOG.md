@@ -6,8 +6,23 @@ The project is under active development. Version numbers describe repository mil
 
 ## Unreleased
 
-- Improve onboarding, licensing, contributor guidance, and project documentation.
-- Prepare cross-platform CI and release packaging.
+- Continue the front-end, semantic-analysis, type-system, and memory-model work toward C÷ 1.0.
+
+## 0.2.1 — developer experience and distribution preview
+
+This is a small development release; C÷ remains an experimental language and the native backend still uses a host C++20 compiler.
+
+### Added
+- Multi-line block comments using C-style delimiters, with a clear diagnostic for unterminated comments.
+- `cdiv doctor` to report the selected C++20 toolchain and explain the current host-only compilation boundary.
+- A written language-design direction for the Standard and System profiles, the proposed ownership model, and a replaceable native backend.
+- A GitHub Release workflow with Linux and Windows x64 archives and SHA-256 checksums.
+- A GHCR container-image publishing workflow and usage documentation.
+
+### Boundaries
+- The new language profiles and ownership rules are design targets, not implemented compiler features.
+- The container distributes the current preview compiler; it does not turn C÷ into a cross-compiler or a completed OS-development toolchain.
+- The Release and Packages entries appear after the maintainer runs the publication workflow successfully. The first GHCR package may need its visibility changed to Public.
 
 ## 0.2.0 — native backend preview
 
