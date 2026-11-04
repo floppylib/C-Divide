@@ -26,6 +26,12 @@ if(BUILD_TESTING)
       -DCDIV_SOURCE=${CMAKE_CURRENT_SOURCE_DIR}/tests/invalid.cdiv
       -P ${CMAKE_CURRENT_SOURCE_DIR}/tests/expect_failure.cmake)
   add_test(NAME native_run_smoke COMMAND cdiv run ${CMAKE_CURRENT_SOURCE_DIR}/tests/smoke.cdiv)
+  add_test(NAME native_build_smoke
+    COMMAND ${CMAKE_COMMAND}
+      -DCDIV_EXECUTABLE=$<TARGET_FILE:cdiv>
+      -DCDIV_SOURCE=${CMAKE_CURRENT_SOURCE_DIR}/tests/smoke.cdiv
+      -DCDIV_OUTPUT=${CMAKE_CURRENT_BINARY_DIR}/cdiv-native-smoke${CMAKE_EXECUTABLE_SUFFIX}
+      -P ${CMAKE_CURRENT_SOURCE_DIR}/tests/native_build.cmake)
 endif()
 include(GNUInstallDirs)
 install(TARGETS cdiv RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
