@@ -126,7 +126,7 @@ cdiv build examples/hello.cdiv
 
 - **کد منبع:** از لینک ZIP بالا استفاده کنید؛ حساب کاربری لازم نیست.
 - **بسته‌های کامپایلر ویندوز و لینوکس:** پس از انتشار موفق، فایل‌ها و checksum در [صفحهٔ Releases](https://github.com/floppylib/C-Divide/releases) قرار می‌گیرند.
-- **بستهٔ کانتینری:** ایمیج کامپایلر در [GitHub Packages](https://github.com/users/floppylib/packages/container/package/c-divide) با نام `ghcr.io/floppylib/c-divide` منتشر می‌شود. [راهنمای بسته‌ها](docs/packages.md) را ببینید.
+- **بستهٔ کانتینری:** گردش‌کار انتشار ایمیج کامپایلر را در [GitHub Packages](https://github.com/users/floppylib/packages/container/package/c-divide) با نام `ghcr.io/floppylib/c-divide` منتشر می‌شود. [راهنمای بسته‌ها](docs/packages.md) را ببینید.
 - **اسکریپت‌های نصب:** فایل‌های <code>scripts/install.sh</code> و <code>scripts/install.ps1</code> برای نصب فایل اجرایی ساخته‌شده در حساب کاربر در نظر گرفته شده‌اند.
 
 **وضعیت انتشار:** گردش‌کار آماده است، اما هنوز Release یا ایمیج عمومی منتشر نشده است. نگه‌دارنده باید از مسیر Actions → C÷ release and packages → Run workflow نسخهٔ `v0.2.1` را منتشر کند. بستهٔ GHCR در انتشار نخست ممکن است نیاز به تغییر سطح دسترسی به Public داشته باشد.
