@@ -1,0 +1,26 @@
+// Variables and output.
+name = "C÷";
+age: int = 12;
+print("Hello, " + name);
+
+// Conditions and loops.
+if age >= 18 {
+    print("Adult");
+} else {
+    print("Keep learning");
+}
+
+repeat 3 {
+    print("tick");
+}
+
+while age > 0 {
+    age = age - 1;
+}
+
+fn add(a: int, b: int) -> int {
+    return a + b;
+}
+
+import math;
+result = add(2, 3);
