@@ -25,7 +25,11 @@ if(BUILD_TESTING)
       -DCDIV_EXECUTABLE=$<TARGET_FILE:cdiv>
       -DCDIV_SOURCE=${CMAKE_CURRENT_SOURCE_DIR}/tests/invalid.cdiv
       -P ${CMAKE_CURRENT_SOURCE_DIR}/tests/expect_failure.cmake)
-  add_test(NAME native_run_smoke COMMAND cdiv run ${CMAKE_CURRENT_SOURCE_DIR}/tests/smoke.cdiv)
+  add_test(NAME native_run_smoke
+    COMMAND ${CMAKE_COMMAND}
+      -DCDIV_EXECUTABLE=$<TARGET_FILE:cdiv>
+      -DCDIV_SOURCE=${CMAKE_CURRENT_SOURCE_DIR}/tests/smoke.cdiv
+      -P ${CMAKE_CURRENT_SOURCE_DIR}/tests/native_run.cmake)
   add_test(NAME native_build_smoke
     COMMAND ${CMAKE_COMMAND}
       -DCDIV_EXECUTABLE=$<TARGET_FILE:cdiv>
