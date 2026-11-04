@@ -421,6 +421,12 @@ private:
     }
 };
 
+} // namespace cdiv
+
+#include "native_backend.hpp"
+
+namespace cdiv {
+
 std::string read_file(const std::string& path) {
     std::ifstream input(path, std::ios::binary);
     if (!input) throw std::runtime_error("cannot open file: " + path);
@@ -434,6 +440,48 @@ void print_diagnostics(const std::vector<Diagnostic>& diagnostics, const std::st
         std::cerr << path << ':' << diagnostic.line << ':' << diagnostic.column
                   << ": error: " << diagnostic.message << '\n';
     }
+}
+
+bool generate_native_source(const std::string& path, std::string& generated) {
+    const std::string source = read_file(path);
+    Lexer lexer(source);
+    const auto tokens = lexer.scan();
+    if (!lexer.diagnostics().empty()) {
+        print_diagnostics(lexer.diagnostics(), path);
+        return false;
+    }
+
+    Parser parser(tokens);
+    if (!parser.parse()) {
+        print_diagnostics(parser.diagnostics(), path);
+        return false;
+    }
+
+    NativeBackend backend(tokens);
+    generated = backend.generate();
+    return true;
+}
+
+int build_source_file(const std::string& path, const std::filesystem::path& output) {
+    std::string generated;
+    if (!generate_native_source(path, generated)) return 1;
+    return build_native_program(generated, output);
+}
+
+int run_source_file(const std::string& path) {
+    std::string generated;
+    if (!generate_native_source(path, generated)) return 1;
+#ifdef _WIN32
+    const auto executable = unique_temp_path(".exe");
+#else
+    const auto executable = unique_temp_path("");
+#endif
+    const int built = build_native_program(generated, executable);
+    if (built != 0) return built;
+    const int result = run_native_program(executable);
+    std::error_code ignored;
+    std::filesystem::remove(executable, ignored);
+    return result;
 }
 
 void print_help() {
@@ -454,21 +502,55 @@ int main(int argc, char** argv) {
     const std::string command = argv[1];
     if (command == "help" || command == "--help" || command == "-h") { print_help(); return 0; }
     if (command == "version" || command == "--version") {
-        std::cout << "C÷ 0.1.0 (front-end foundation)\n";
+        std::cout << "C÷ 0.2.0 (native backend preview)\\n";
         return 0;
     }
-    if (command != "lex" && command != "check") {
-        std::cerr << "error: unknown command '" << command << "'\n";
-        print_help();
-        return 2;
-    }
-    if (argc != 3) {
-        std::cerr << "error: command '" << command << "' requires one source file\n";
-        return 2;
-    }
 
-    const std::string path = argv[2];
     try {
+        if (command == "build") {
+            if (argc != 3 && argc != 5) {
+                std::cerr << "error: usage: cdiv build <file.cdiv> [-o output]\\n";
+                return 2;
+            }
+            const std::string path = argv[2];
+            std::filesystem::path output;
+            if (argc == 5) {
+                if (std::string(argv[3]) != "-o") {
+                    std::cerr << "error: expected '-o' before output path\\n";
+                    return 2;
+                }
+                output = argv[4];
+            } else {
+                output = std::filesystem::current_path() / "build" /
+                         std::filesystem::path(path).stem();
+#ifdef _WIN32
+                output += ".exe";
+#endif
+            }
+            const int result = build_source_file(path, output);
+            if (result == 0) std::cout << "Built native executable: " << output.string() << '\\n';
+            return result;
+        }
+
+        if (command == "run") {
+            if (argc != 3) {
+                std::cerr << "error: usage: cdiv run <file.cdiv>\\n";
+                return 2;
+            }
+            return run_source_file(argv[2]);
+        }
+
+        if (command != "lex" && command != "check") {
+            std::cerr << "error: unknown command '" << command << "'\\n";
+            print_help();
+            return 2;
+        }
+        if (argc != 3) {
+            std::cerr << "error: command '" << command << "' requires one source file\\n";
+            return 2;
+        }
+
+        const std::string path = argv[2];
         const std::string source = read_file(path);
         Lexer lexer(source);
         const auto tokens = lexer.scan();
@@ -481,7 +563,7 @@ int main(int argc, char** argv) {
             for (const auto& token : tokens) {
                 std::cout << token.line << ':' << token.column << "  " << kind_name(token.kind);
                 if (!token.lexeme.empty()) std::cout << "  '" << token.lexeme << "'";
-                std::cout << '\n';
+                std::cout << '\\n';
             }
             return 0;
         }
@@ -491,10 +573,10 @@ int main(int argc, char** argv) {
             print_diagnostics(parser.diagnostics(), path);
             return 1;
         }
-        std::cout << "OK: " << path << " passed lexical and syntax checks.\n";
+        std::cout << "OK: " << path << " passed lexical and syntax checks.\\n";
         return 0;
     } catch (const std::exception& error) {
-        std::cerr << "error: " << error.what() << '\n';
+        std::cerr << "error: " << error.what() << '\\n';
         return 1;
     }
 }
