@@ -1,6 +1,7 @@
 <div align="center">
   <img src="assets/logo-padded.svg" alt="Официальный логотип C÷" width="144">
   <h1>C÷ · C-Divide</h1>
+  <p><img alt="Built with ChatGPT" src="https://img.shields.io/badge/Built%20with-ChatGPT-10A37F?style=for-the-badge&logo=openai&logoColor=white"></p>
     <p align="center">
     <a href="https://github.com/floppylib/C-Divide/archive/refs/heads/main.zip"><img alt="Исходный код ZIP" src="https://img.shields.io/badge/Download-Source%20ZIP-238636?style=for-the-badge&logo=github&logoColor=white"></a>
     <a href="https://cmake.org/download/"><img alt="CMake 3.20+" src="https://img.shields.io/badge/Get-CMake%203.20%2B-064F8C?style=for-the-badge&logo=cmake&logoColor=white"></a>
