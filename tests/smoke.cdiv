@@ -1,3 +1,6 @@
+/*
+ * Multi-line comments are ignored by the C÷ lexer.
+ */
 // Variables and output.
 name = "C÷";
 age: int = 12;
