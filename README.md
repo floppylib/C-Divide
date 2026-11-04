@@ -1,5 +1,6 @@
+<!-- C÷ project home -->
 <div align="center">
-  <img src="assets/cdivide-mark.svg" alt="C÷ mark" width="112" height="112">
+  <img src="assets/IMG_20261104_222603.png" alt="Official C÷ logo" width="144">
   <h1>C÷ · C-Divide</h1>
   <p><strong>Simple to learn. Powerful to build.</strong></p>
   <p>A readable programming language with a native-compilation goal.</p>
@@ -11,10 +12,14 @@
     <img alt="Current stage" src="https://img.shields.io/badge/status-front--end%20foundation-orange.svg">
   </p>
   <p>
-    <a href="README.fa.md">فارسی</a> ·
-    <a href="#quick-start">Quick start</a> ·
-    <a href="docs/getting-started.md">Getting started</a> ·
-    <a href="docs/language.md">Language guide</a> ·
+    <a href="README.md">English</a> · <a href="README.fa.md">فارسی</a> · <a href="README.ar.md">العربية</a> ·
+    <a href="README.de.md">Deutsch</a> · <a href="README.es.md">Español</a> · <a href="README.fr.md">Français</a> ·
+    <a href="README.hi.md">हिन्दी</a> · <a href="README.ja.md">日本語</a> · <a href="README.pt-BR.md">Português (Brasil)</a> ·
+    <a href="README.ru.md">Русский</a> · <a href="README.zh-CN.md">简体中文</a>
+  </p>
+  <p>
+    <a href="#quick-start">Quick start</a> · <a href="docs/getting-started.md">Getting started</a> ·
+    <a href="docs/language.md">Language guide</a> · <a href="docs/architecture.md">Architecture</a> ·
     <a href="docs/roadmap.md">Roadmap</a>
   </p>
 </div>
@@ -23,15 +28,16 @@
 
 ## ✨ What is C÷?
 
-C÷ (pronounced <strong>C-Divide</strong>) is an open programming-language project. Its goal is to make code approachable for new programmers without giving up the structure needed for serious software.
+C÷ (pronounced **C-Divide**) is an open programming-language project. Its goal is to make code approachable for new programmers without giving up the structure needed for serious software.
 
-The long-term direction is a <strong>native compiled language</strong> with automatic and manual memory-management options, a useful standard library, and friendly developer tools.
+The long-term direction is a **native-compiled language** with automatic and manual memory-management options, a useful standard library, and friendly developer tools.
 
-> <strong>Honest status:</strong> this repository currently contains an early lexer and syntax checker. It does not execute C÷ programs or generate native executables yet. The project is being built toward a complete 1.0 release.
+> **Honest status:** this repository currently contains an early lexer, parser, and syntax-checking foundation. It does not execute C÷ programs or generate native executables yet. The project is being built toward a complete 1.0 release.
 
 ## 🚀 A taste of the syntax
 
-<pre><code class="language-cdiv">name = "Hello, C÷!";
+~~~cdiv
+name = "Hello, C÷!";
 print(name);
 
 age = 20;
@@ -41,11 +47,12 @@ if age >= 18 {
     print("Keep learning!");
 }
 
-fn add(a: int, b: int) -&gt; int {
+fn add(a: int, b: int) -> int {
     return a + b;
-}</code></pre>
+}
+~~~
 
-This is the intended language style. The current front end can tokenize and syntax-check examples like this; runtime behavior and type checking are still under development.
+This illustrates the intended language style. The current front end can tokenize and syntax-check supported constructs; runtime behavior, semantic analysis, and type checking are still under development. **C÷ source keywords are currently English**; translated README files do not mean that localized language keywords are implemented.
 
 ## 🧭 Project principles
 
@@ -55,61 +62,67 @@ This is the intended language style. The current front end can tokenize and synt
 | Performance | Native executable output is the goal |
 | Memory | Automatic and explicit control, with safety rules to be specified |
 | Portability | Windows and Linux first; other platforms can follow |
-| Tooling | One clear CLI, good diagnostics, formatter and package tools |
-| Accessibility | Downloadable archives and simple installers; no Git knowledge required |
+| Tooling | Clear CLI, useful diagnostics, formatter and package tools |
+| Accessibility | Source archives and simple installers; no Git knowledge required |
 
 ## ⚡ Quick start
 
 ### 1. Get the source — no Git required
 
-You do <strong>not</strong> need a GitHub account, Git, or a terminal to download the project source.
+You do **not** need a GitHub account, Git, or a terminal to download the source archive.
 
-<strong><a href="https://github.com/floppylib/C-Divide/archive/refs/heads/main.zip">⬇ Download the source as a ZIP</a></strong>
+**[⬇ Download the source as a ZIP](https://github.com/floppylib/C-Divide/archive/refs/heads/main.zip)**
 
-Unzip it, then open the extracted folder in a terminal. If you prefer Git, the usual clone command is:
+Unzip it, then open the extracted folder in a terminal. If you prefer Git:
 
-<pre><code>git clone https://github.com/floppylib/C-Divide.git
-cd C-Divide</code></pre>
+~~~sh
+git clone https://github.com/floppylib/C-Divide.git
+cd C-Divide
+~~~
 
 ### 2. Build it
 
 Requirements: a C++20 compiler and CMake 3.20 or newer.
 
-<strong>Linux</strong>
+**Linux**
 
-<pre><code>cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+~~~sh
+cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
 cmake --build build --parallel
-ctest --test-dir build --output-on-failure</code></pre>
+ctest --test-dir build --output-on-failure
+~~~
 
-<strong>Windows — PowerShell</strong>
+**Windows — PowerShell**
 
-<pre><code>cmake -S . -B build
+~~~powershell
+cmake -S . -B build
 cmake --build build --config Release
-ctest --test-dir build -C Release --output-on-failure</code></pre>
+ctest --test-dir build -C Release --output-on-failure
+~~~
 
-### 3. Try the tools
+### 3. Try the development tools
 
 The executable is named <code>cdiv</code> (or <code>cdiv.exe</code> on Windows).
 
-<pre><code>cdiv help
+~~~sh
+cdiv help
 cdiv version
 cdiv lex examples/hello.cdiv
-cdiv check examples/hello.cdiv</code></pre>
+cdiv check examples/hello.cdiv
+~~~
 
 - <code>lex</code> displays tokens and their source positions.
 - <code>check</code> checks lexical and grammatical structure.
 
-These are compiler-development commands. They do not run the program or produce a native executable yet.
+These are compiler-development commands. They do not run a program or produce a native executable yet.
 
-## 📦 Downloads without GitHub know-how
+## 📦 Downloads
 
-C÷ is designed so people can use it without learning Git or creating an account.
+- **Source code:** use the ZIP link above. No account is required.
+- **Prebuilt compiler tools:** packages will be published on the [Releases page](https://github.com/floppylib/C-Divide/releases) after a version tag is created and the release build succeeds.
+- **Install scripts:** <code>scripts/install.sh</code> and <code>scripts/install.ps1</code> are provided for installing a built executable into the user's account.
 
-- <strong>Source code:</strong> use the ZIP link above. It is a direct archive download.
-- <strong>Ready-to-run compiler tools:</strong> once the first tagged release is published, Windows and Linux packages will appear on the <a href="https://github.com/floppylib/C-Divide/releases">Releases page</a>. No account is needed to download public release files.
-- <strong>Install scripts:</strong> <code>scripts/install.sh</code> and <code>scripts/install.ps1</code> install a locally built or downloaded <code>cdiv</code> executable into your user account by default.
-
-Prebuilt packages are not published yet. The release workflow is prepared, but a package will only be available after a version tag is created and the release build succeeds.
+**Prebuilt packages are not published yet.** The release workflow is prepared, but downloads will only appear after a tagged release is built successfully.
 
 ## 🧩 What's implemented?
 
@@ -119,7 +132,7 @@ Prebuilt packages are not published yet. The release workflow is prepared, but a
 | Lexer and source-position diagnostics | ✅ Initial version |
 | Parser and syntax checker | ✅ Initial version |
 | Variables, calls, functions, conditions and loops in grammar | ✅ Parsed, not executed |
-| Automated build and test workflow | ✅ |
+| Automated build and test workflow | ✅ Configured |
 | Native code generation | 🛠 Planned |
 | Runtime and program execution | 🛠 Planned |
 | Semantic and type analysis | 🛠 Planned |
@@ -127,37 +140,37 @@ Prebuilt packages are not published yet. The release workflow is prepared, but a
 | Memory-management model | 🧭 Design work |
 | Package manager, formatter and debugger | 🛠 Planned |
 
-See the <a href="docs/roadmap.md">roadmap</a> for the bigger picture.
+See the [roadmap](docs/roadmap.md) for planned milestones.
 
 ## 📚 Documentation
 
 | Guide | What you'll find |
 | --- | --- |
-| <a href="docs/getting-started.md">Getting started</a> | Build C÷ on Windows or Linux |
-| <a href="docs/language.md">Language guide</a> | Syntax currently recognized by the front end |
-| <a href="docs/architecture.md">Architecture</a> | How the compiler is structured |
-| <a href="docs/roadmap.md">Roadmap</a> | Planned milestones |
-| <a href="docs/faq.md">FAQ</a> | Common questions |
-| <a href="docs/downloads.md">Downloads</a> | Source archives and release packages |
+| [Getting started](docs/getting-started.md) | Build C÷ on Windows or Linux |
+| [Language guide](docs/language.md) | Syntax recognized by the current front end |
+| [Architecture](docs/architecture.md) | Compiler structure and components |
+| [Roadmap](docs/roadmap.md) | Planned milestones |
+| [FAQ](docs/faq.md) | Common questions |
+| [Downloads](docs/downloads.md) | Source archives and release packages |
 
-Persian readers: start with the <a href="README.fa.md">راهنمای فارسی</a>.
+The README is available in the languages listed above. The technical guides remain English-first for now. Translation contributions are welcome.
 
 ## 🤝 Community
 
-C÷ is open to suggestions, bug reports, documentation improvements, and code contributions.
+Suggestions, bug reports, documentation improvements, and code contributions are welcome.
 
-- Read <a href="CONTRIBUTING.md">CONTRIBUTING.md</a> before opening a pull request.
+- Read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request.
 - Use the issue templates for bug reports and feature ideas.
-- Read the <a href="CODE_OF_CONDUCT.md">Code of Conduct</a> and <a href="SECURITY.md">Security Policy</a>.
+- Review the [Code of Conduct](CODE_OF_CONDUCT.md) and [Security Policy](SECURITY.md).
 
-No contribution is too small: a clear bug report or a better example is useful.
+A clear bug report or a better example is a valuable contribution.
 
 ## 📜 Licensing
 
-- <strong>Source code:</strong> <a href="LICENSE">MIT License</a>.
-- <strong>Documentation:</strong> <a href="LICENSE-DOCS">Creative Commons Attribution 4.0 (CC BY 4.0)</a>.
+- **Source code:** [MIT License](LICENSE).
+- **Documentation:** [Creative Commons Attribution 4.0](LICENSE-DOCS).
 
-Third-party components, if introduced later, will be listed separately in <a href="THIRD_PARTY_NOTICES.md">THIRD_PARTY_NOTICES.md</a>.
+Third-party components, if introduced later, will be listed in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
 ---
 
