@@ -317,7 +317,7 @@ inline int compile_cpp_file(const std::filesystem::path& cpp_file,
     if (msvc) {
         auto object_file = cpp_file;
         object_file.replace_extension(".obj");
-        command = shell_quote(compiler) + " /nologo /std:c++20 /EHsc /O2 " + shell_quote(cpp_file.string()) +
+        command = shell_quote(compiler) + " /nologo /std:c++20 /EHsc /utf-8 /O2 " + shell_quote(cpp_file.string()) +
                   " /Fo:" + shell_quote(object_file.string()) +
                   " /Fe:" + shell_quote(output_file.string());
     } else {
